@@ -528,27 +528,32 @@
             <form id="consultForm" onsubmit="handleConsultSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">학부모 성함</label>
-                    <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue focus:ring-1 focus:ring-imperial-blue outline-none transition-all" placeholder="예: 홍길동">
+                    <!-- name 속성 추가 -->
+                    <input type="text" name="parentName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue focus:ring-1 focus:ring-imperial-blue outline-none transition-all" placeholder="예: 홍길동">
                 </div>
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">학생 이름</label>
-                    <input type="text" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue focus:ring-1 focus:ring-imperial-blue outline-none transition-all" placeholder="예: 홍준표">
+                    <!-- name 속성 추가 -->
+                    <input type="text" name="studentName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue focus:ring-1 focus:ring-imperial-blue outline-none transition-all" placeholder="예: 홍준표">
                 </div>
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">연락처</label>
-                    <input type="tel" id="phoneInput" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue focus:ring-1 focus:ring-imperial-blue outline-none transition-all" placeholder="010-0000-0000" oninput="formatPhone(this)">
+                    <!-- name 속성 추가 -->
+                    <input type="tel" id="phoneInput" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue focus:ring-1 focus:ring-imperial-blue outline-none transition-all" placeholder="010-0000-0000" oninput="formatPhone(this)">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1">자녀 학년</label>
-                        <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue outline-none">
+                        <!-- name 속성 추가 -->
+                        <select name="grade" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue outline-none">
                             <option>예비 중1</option><option>중1</option><option>중2</option><option>중3</option>
                             <option>고1</option><option>고2</option><option>고3</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1">관심 과목</label>
-                        <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue outline-none">
+                        <!-- name 속성 추가 -->
+                        <select name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue outline-none">
                             <option>수학</option><option>영어</option><option>국어</option><option>과학</option><option>전과목</option>
                         </select>
                     </div>
@@ -805,12 +810,14 @@
         async function handleConsultSubmit(e) {
             e.preventDefault(); 
             
-            // 1. Data Collection (Gathering Lead Info)
-            const parentName = e.target.querySelector('input[placeholder="예: 홍길동"]').value;
-            const studentName = e.target.querySelector('input[placeholder="예: 홍준표"]').value;
-            const phone = document.getElementById('phoneInput').value;
-            const grade = e.target.querySelectorAll('select')[0].value;
-            const subject = e.target.querySelectorAll('select')[1].value;
+            // 1. Data Collection (Improved Robustness)
+            // placeholder에 의존하지 않고 name 속성으로 정확하게 데이터를 가져옵니다.
+            const form = e.target;
+            const parentName = form.parentName.value;
+            const studentName = form.studentName.value;
+            const phone = form.phone.value;
+            const grade = form.grade.value;
+            const subject = form.subject.value;
 
             const btn = document.getElementById('submitBtn');
             const loader = document.getElementById('btnLoader');
@@ -822,7 +829,6 @@
 
             try {
                 // 2. [Growth Hacking] Real-time Admin Alert (Telegram)
-                // 데이터는 텔레그램 서버를 거쳐 관리자의 앱으로 즉시 전송됩니다.
                 await sendTelegramAlert({ parentName, studentName, phone, grade, subject });
 
                 // 3. UI Feedback (Success)
@@ -840,19 +846,20 @@
                 setTimeout(() => {
                     closeConsultModal();
                     text.textContent = '무료 진단 예약하기';
-                    e.target.reset();
+                    form.reset(); // Form Reset
                     btn.disabled = false;
                 }, 1500);
 
             } catch (error) {
-                console.error("Submission error:", error);
+                console.error("Submission error details:", error); // 개발자 도구 콘솔에서 자세한 에러 확인 가능
                 text.textContent = '다시 시도해주세요';
                 btn.disabled = false;
                 loader.classList.add('hidden');
                 
+                // 사용자에게 봇 시작 여부를 알림
                 Toastify({
-                    text: "전송 중 오류가 발생했습니다. 전화로 문의주세요.",
-                    duration: 3000,
+                    text: "전송 실패. 텔레그램 봇 '시작' 버튼을 눌렀는지 확인해주세요.",
+                    duration: 4000,
                     gravity: "top", 
                     position: "center", 
                     style: { background: "#ff5f5f" }
@@ -861,12 +868,8 @@
         }
 
         // [Service Value]: 관리자에게 실시간 알림을 보내 상담 골든타임을 놓치지 않게 합니다.
-        // [Notice]: 실제 작동을 위해서는 아래 변수에 본인의 텔레그램 봇 토큰과 Chat ID를 넣어야 합니다.
         async function sendTelegramAlert(data) {
-            // STEP 1: 텔레그램 앱에서 'BotFather' 검색 -> /newbot 명령어로 봇 생성 -> Token 복사
             const BOT_TOKEN = '8435500018:AAGY4gcNhiRBx2fHf8OzbHy74wIkzN5qvB0'; 
-            
-            // STEP 2: 텔레그램 앱에서 'userinfobot' 검색 -> Start 누르고 ID 숫자 확인 -> 복사
             const CHAT_ID = '8466973475';
 
             const message = `
@@ -891,12 +894,14 @@
                 body: JSON.stringify({
                     chat_id: CHAT_ID,
                     text: message,
-                    parse_mode: 'HTML' // 옵션: 텍스트 스타일링 필요시
+                    parse_mode: 'HTML'
                 })
             });
 
             if (!response.ok) {
-                throw new Error('Telegram API Error');
+                // 텔레그램 API가 거부한 경우 (예: 봇 차단, 잘못된 토큰 등)
+                const errorData = await response.json();
+                throw new Error(`Telegram API Error: ${errorData.description}`);
             }
         }
 
