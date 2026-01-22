@@ -88,6 +88,7 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
         }
+        .slider-container { position: relative; width: 100%; height: 100%; }
         
         .loader {
             border: 3px solid #f3f3f3;
@@ -103,7 +104,6 @@
 
     <!-- DATA LAYER -->
     <script>
-        // [Conversion Strategy]: 'quote' 필드를 'impact' 필드로 변경하여 학부모 설득력을 높이는 구체적 스펙/성과 위주로 데이터 수정
         const DB = {
             teachers: [
                 { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "35년", students: "4000+", rate: "95%", impact: "영일고/강서고 내신·수능 완벽 대비", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
@@ -328,13 +328,11 @@
     <!-- Teachers Section -->
     <section id="teachers" class="py-24 bg-gray-50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- 1. Header & Text Mobile Center Alignment -->
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4 text-center md:text-left">
                 <div class="w-full md:w-auto">
                     <h2 class="text-3xl font-bold text-gray-900">최고의 전문가 그룹</h2>
                     <p class="text-gray-500 mt-2">임페리얼의 최고 수준 강사진을 소개합니다.</p>
                 </div>
-                <!-- Filter Button Center Alignment on Mobile -->
                 <div class="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto scrollbar-hide justify-center md:justify-start">
                     <button class="filter-btn active px-4 py-2 rounded-full bg-imperial-black text-white text-sm font-bold whitespace-nowrap" onclick="filterTeachers('all', this)">전체</button>
                     <button class="filter-btn px-4 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-bold whitespace-nowrap hover:bg-gray-100" onclick="filterTeachers('수학', this)">수학</button>
@@ -358,7 +356,6 @@
                 <i class="fas fa-times text-xl"></i>
             </button>
             
-            <!-- 3. Modal Image: Removed arrows, single image view -->
             <div class="w-full md:w-5/12 bg-gray-100 flex items-center justify-center overflow-hidden relative h-96 md:h-auto">
                 <img id="modal-teacher-img" src="" alt="Teacher" class="w-full h-full object-cover">
             </div>
@@ -528,23 +525,19 @@
             <form id="consultForm" onsubmit="handleConsultSubmit(event)" class="space-y-4">
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">학부모 성함</label>
-                    <!-- name 속성 추가 -->
                     <input type="text" name="parentName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue focus:ring-1 focus:ring-imperial-blue outline-none transition-all" placeholder="예: 홍길동">
                 </div>
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">학생 이름</label>
-                    <!-- name 속성 추가 -->
                     <input type="text" name="studentName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue focus:ring-1 focus:ring-imperial-blue outline-none transition-all" placeholder="예: 홍준표">
                 </div>
                 <div>
                     <label class="block text-sm font-bold text-gray-700 mb-1">연락처</label>
-                    <!-- name 속성 추가 -->
                     <input type="tel" id="phoneInput" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue focus:ring-1 focus:ring-imperial-blue outline-none transition-all" placeholder="010-0000-0000" oninput="formatPhone(this)">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1">자녀 학년</label>
-                        <!-- name 속성 추가 -->
                         <select name="grade" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue outline-none">
                             <option>예비 중1</option><option>중1</option><option>중2</option><option>중3</option>
                             <option>고1</option><option>고2</option><option>고3</option>
@@ -552,7 +545,6 @@
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1">관심 과목</label>
-                        <!-- name 속성 추가 -->
                         <select name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-imperial-blue outline-none">
                             <option>수학</option><option>영어</option><option>국어</option><option>과학</option><option>전과목</option>
                         </select>
@@ -628,10 +620,13 @@
 
     <!-- LOGIC LAYER -->
     <script>
+        let currentTeacherImages = [];
+        let currentImageIndex = 0;
+
         document.addEventListener('DOMContentLoaded', () => {
             renderSuccessStories(); 
             filterTeachers('all');
-            initTeacherFilter(); // Initialize teacher dropdown
+            initTeacherFilter(); 
             renderTimetable();
             initCounters(); // Initialize stats animation
         });
@@ -884,9 +879,12 @@
 * 관리자님, 빠른 연락 부탁드립니다.
             `;
 
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            // [Growth Hacking Fix]: 브라우저 CORS 보안 정책을 우회하기 위해 프록시 사용
+            // 일반적인 fetch는 브라우저에서 차단되므로 corsproxy.io를 경유합니다.
+            const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            const proxyUrl = `https://corsproxy.io/?` + encodeURIComponent(telegramUrl);
             
-            const response = await fetch(url, {
+            const response = await fetch(proxyUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
