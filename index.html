@@ -112,21 +112,19 @@
         // 2. 홈페이지 데이터 모음
         const IMPERIAL_DATA = {
             // [강사 및 TA 목록]
-            // subject: '수학', '영어', '국어', '과학', 'TA' 중 하나
-            // imgs: 사진 URL을 배열로 입력. 없으면 [] 빈 괄호 유지 (자동으로 기본 이미지 적용됨)
             teachers: [
-                { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "31년", students: "4000+", rate: "95%", impact: "영일고/강서고 내신·수능 완벽 대비", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
+                { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "35년", students: "4000+", rate: "95%", impact: "영일고/강서고 내신·수능 완벽 대비", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
                 { id: 2, name: "장인자", subject: "수학", role: "수학과 전임 강사", grade: "중2 - 고1", info: "고려대학원 영재교육전공", career: "30년", students: "1200+", rate: "97%", impact: "30년 경력의 압도적 관리 노하우", imgs: ["https://i.postimg.cc/MZ9jWyWY/2-1.jpg"] },
                 { id: 3, name: "김준혁", subject: "수학", role: "부원장 / 수학과 대표", grade: "고2 - 고3", info: "Georgia Tech 졸업", career: "11년", students: "1400+", rate: "98%", impact: "Georgia Tech 졸업 / 심화 수학 전문가", imgs: ["https://i.postimg.cc/MZ9jWyWD/3-1.jpg"] },
-                { id: 4, name: "오수영", subject: "수학", role: "수학과 전임 강사", grade: "고2 - 고3", info: "임페리얼 수능 전임", career: "6년", students: "100+", rate: "90%", impact: "수능 수학 1등급 메이커", imgs: ["https://i.postimg.cc/2j0Bz4zT/4-1.jpg"] },
+                { id: 4, name: "오수영", subject: "수학", role: "수학과 전임 강사", grade: "고2 - 고3", info: "임페리얼 수능 전임", career: "3년", students: "100+", rate: "90%", impact: "수능 수학 1등급 메이커", imgs: ["https://i.postimg.cc/2j0Bz4zT/4-1.jpg"] },
                 { id: 7, name: "신요한", subject: "영어", role: "영어과 대표", grade: "고1 - 고3", info: "성균관대 법학과 졸업", career: "17년", students: "500+", rate: "97%", impact: "성균관대 법대 / 수능 영어 1등급", imgs: ["https://i.postimg.cc/NGdrg1gN/7-1.jpg"] },
                 { id: 8, name: "최성민", subject: "영어", role: "영어과 전임 강사", grade: "중1 - 중3", info: "대치동 전임", career: "10년", students: "200+", rate: "90%", impact: "대치동 출신 / 중등 영어 완성", imgs: ["https://i.postimg.cc/gcg6YvYS/8-1.jpg"] },
                 { id: 9, name: "정석홍", subject: "국어", role: "국어과 대표", grade: "고1 - 고3", info: "임페리얼 국어 전임", career: "5년", students: "100+", rate: "91%", impact: "수능 국어 문해력/비문학 전문가", imgs: ["https://i.postimg.cc/sfTZVpV0/9-1.jpg"] },
                 { id: 10, name: "박성채", subject: "과학", role: "과학과 대표", grade: "고1 - 고3", info: "고려대 기계공학과", career: "3년", students: "90+", rate: "92%", impact: "고려대 기계공학 / 과학 탐구 마스터", imgs: ["https://i.postimg.cc/ryft8S83/10-1.jpg"] },
                 { id: 5, name: "최아인", subject: "영어", role: "영어과 파트 강사", grade: "고3", info: "현) 메가스터디 노량진", career: "4년", students: "300+", rate: "94%", impact: "메가스터디 출신 / 고3 실전 영어", imgs: ["https://i.postimg.cc/bYm2zQzH/5-1.jpg"] },
-                { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "과학 전공 / 연구원 출신", career: "5년", students: "50+", rate: "90%", impact: "꼼꼼한 개념 정리 / 과학 내신 대비", imgs: [] },
+                { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "과학 전문", career: "2년", students: "50+", rate: "90%", impact: "꼼꼼한 개념 정리 / 과학 내신 대비", imgs: [] },
                 
-                // [TA(조교) 그룹] subject를 반드시 'TA'로 설정하세요.
+                // [TA(조교) 그룹]
                 { 
                     id: 6, name: "오혜원", subject: "TA", role: "수학 클리닉", grade: "중/고등", info: "서울대 정치외교학과", 
                     career: "2년", students: "250+", rate: "95%", impact: "서울대 멘토의 꼼꼼한 관리", 
@@ -214,6 +212,78 @@
                     "2023 노OO 내신 4등급 <span class='text-imperial-blue font-bold'>→ 2024 전교 1등</span>",
                     "2025 이OO 내신 1등급 <span class='text-imperial-blue font-bold'>→ 2025 전교 1등</span>"
                 ]
+            },
+
+            // [교습비 안내]
+            tuition: {
+                summary: [
+                    { title: "중등 수학", price: "300,000" },
+                    { title: "중등 영어", price: "300,000" },
+                    { title: "고등 수학", price: "400,000" },
+                    { title: "고등 영어", price: "400,000" },
+                    { title: "고등 국어", price: "220,000" },
+                    { title: "고등 과학", price: "170,000" }
+                ],
+                policy: "특강료는 별도 산정됩니다. 수강료는 매월 1일 기준으로 산정되며, 수업 회차와는 무관합니다.<br>개인적인 사정에 의한 결석 시 강사 보충은 불가하나, 담당 조교의 밀착 클리닉으로 보충 학습을 진행합니다.",
+                // 법적 게시표 데이터 (모달용)
+                legalList: [
+                    { category: "보습", subject: "초등수학1", capacity: 18, time: "1,323", price: "250,000" },
+                    { category: "보습", subject: "초등수학2", capacity: 18, time: "1,512", price: "280,000" },
+                    { category: "보습", subject: "초등수학3", capacity: 18, time: "1,512", price: "280,000" },
+                    { category: "보습", subject: "중등수학1", capacity: 18, time: "1,008", price: "200,000" },
+                    { category: "보습", subject: "중등수학2", capacity: 18, time: "1,512", price: "300,000" },
+                    { category: "보습", subject: "중등수학3", capacity: 18, time: "1,512", price: "300,000" },
+                    { category: "보습", subject: "중등수학4", capacity: 18, time: "1,260", price: "250,000" },
+                    { category: "보습", subject: "중등수학5", capacity: 18, time: "1,512", price: "300,000" },
+                    { category: "보습", subject: "고등수학1", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등수학2", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등수학3", capacity: 18, time: "756", price: "170,000" },
+                    { category: "보습", subject: "고등수학4", capacity: 18, time: "2,016", price: "400,000" },
+                    { category: "보습", subject: "고등수학5", capacity: 18, time: "1,260", price: "280,000" },
+                    { category: "보습", subject: "고등수학6", capacity: 18, time: "1,764", price: "400,000" },
+                    { category: "보습", subject: "고등수학7", capacity: 18, time: "1,764", price: "400,000" },
+                    { category: "보습", subject: "고등수학8", capacity: 18, time: "1,512", price: "340,000" },
+                    { category: "보습", subject: "고등수학9", capacity: 18, time: "1,512", price: "340,000" },
+                    { category: "보습", subject: "고등수학10", capacity: 18, time: "1,764", price: "400,000" },
+                    { category: "보습", subject: "고등수학11", capacity: 18, time: "1,008", price: "200,000" },
+                    { category: "보습", subject: "고등수학12", capacity: 18, time: "1,260", price: "250,000" },
+                    { category: "보습", subject: "초등영어1", capacity: 18, time: "1,323", price: "250,000" },
+                    { category: "보습", subject: "초등영어2", capacity: 18, time: "1,512", price: "280,000" },
+                    { category: "보습", subject: "초등영어3", capacity: 18, time: "1,512", price: "280,000" },
+                    { category: "보습", subject: "중등영어1", capacity: 18, time: "1,008", price: "200,000" },
+                    { category: "보습", subject: "중등영어2", capacity: 18, time: "1,512", price: "300,000" },
+                    { category: "보습", subject: "중등영어3", capacity: 18, time: "1,512", price: "300,000" },
+                    { category: "보습", subject: "중등영어4", capacity: 18, time: "1,260", price: "250,000" },
+                    { category: "보습", subject: "중등영어5", capacity: 18, time: "1,512", price: "300,000" },
+                    { category: "보습", subject: "고등영어1", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등영어2", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등영어3", capacity: 18, time: "756", price: "170,000" },
+                    { category: "보습", subject: "고등영어4", capacity: 18, time: "2,016", price: "400,000" },
+                    { category: "보습", subject: "고등영어5", capacity: 18, time: "1,260", price: "280,000" },
+                    { category: "보습", subject: "고등영어6", capacity: 18, time: "1,764", price: "400,000" },
+                    { category: "보습", subject: "고등영어7", capacity: 18, time: "1,764", price: "400,000" },
+                    { category: "보습", subject: "고등영어8", capacity: 18, time: "1,512", price: "340,000" },
+                    { category: "보습", subject: "고등영어9", capacity: 18, time: "1,512", price: "340,000" },
+                    { category: "보습", subject: "고등영어10", capacity: 18, time: "1,890", price: "400,000" },
+                    { category: "보습", subject: "고등영어11", capacity: 18, time: "1,764", price: "400,000" },
+                    { category: "보습", subject: "고등영어12", capacity: 18, time: "1,764", price: "400,000" },
+                    { category: "보습", subject: "고등영어13", capacity: 18, time: "1,008", price: "200,000" },
+                    { category: "보습", subject: "중등국어1", capacity: 18, time: "504", price: "100,000" },
+                    { category: "보습", subject: "중등국어2", capacity: 18, time: "756", price: "150,000" },
+                    { category: "보습", subject: "중등국어3", capacity: 18, time: "1,008", price: "200,000" },
+                    { category: "보습", subject: "고등국어1", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등국어2", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등국어3", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등국어4", capacity: 18, time: "756", price: "170,000" },
+                    { category: "보습", subject: "중등과학1", capacity: 18, time: "504", price: "100,000" },
+                    { category: "보습", subject: "중등과학2", capacity: 18, time: "756", price: "150,000" },
+                    { category: "보습", subject: "중등과학3", capacity: 18, time: "1,008", price: "200,000" },
+                    { category: "보습", subject: "고등과학1", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등과학2", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등과학3", capacity: 18, time: "1,008", price: "220,000" },
+                    { category: "보습", subject: "고등과학4", capacity: 18, time: "756", price: "170,000" },
+                    { category: "보습", subject: "고등과학5", capacity: 18, time: "504", price: "100,000" }
+                ]
             }
         };
     </script>
@@ -237,6 +307,7 @@
                     <a href="#teachers" class="text-sm font-medium text-gray-600 hover:text-imperial-blue transition-colors">강사진</a>
                     <a href="#system" class="text-sm font-medium text-gray-600 hover:text-imperial-blue transition-colors">시스템</a>
                     <a href="#timetable" class="text-sm font-medium text-gray-600 hover:text-imperial-blue transition-colors">시간표</a>
+                    <!-- New Tuition Link -->
                     <a href="#tuition" class="text-sm font-medium text-gray-600 hover:text-imperial-blue transition-colors">교습비</a>
                     
                     <a href="https://imperial-system1.pages.dev/" target="_blank" class="text-gray-600 hover:text-imperial-blue transition-colors focus:outline-none" title="임페리얼 시스템">
@@ -263,6 +334,7 @@
                 <a href="#intro" onclick="toggleMobileMenu()" class="block py-3 text-base font-medium text-gray-700 border-b border-gray-100">학원소개</a>
                 <a href="#teachers" onclick="toggleMobileMenu()" class="block py-3 text-base font-medium text-gray-700 border-b border-gray-100">강사진</a>
                 <a href="#timetable" onclick="toggleMobileMenu()" class="block py-3 text-base font-medium text-gray-700 border-b border-gray-100">시간표</a>
+                <!-- New Tuition Mobile Link -->
                 <a href="#tuition" onclick="toggleMobileMenu()" class="block py-3 text-base font-medium text-gray-700 mb-4">교습비</a>
                 <button onclick="openConsultModal(); toggleMobileMenu()" class="w-full bg-imperial-blue text-white py-3 rounded-lg font-bold">상담 예약하기</button>
             </div>
@@ -307,7 +379,7 @@
                     <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">누적 수강생</div>
                 </div>
                 <div>
-                    <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="96">0</div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="95">0</div>
                     <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">성적 향상률 (%)</div>
                 </div>
                 <div>
@@ -402,72 +474,6 @@
         </div>
     </section>
 
-    <!-- Teacher Modal -->
-    <div id="teacher-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center overflow-y-auto">
-        <div class="fixed inset-0 bg-black bg-opacity-70 transition-opacity" onclick="closeTeacherModal()"></div>
-        <div class="glass-modal relative z-10 w-full max-w-5xl mx-4 my-8 rounded-lg shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]">
-            <button onclick="closeTeacherModal()" class="absolute top-4 right-4 text-gray-500 hover:text-black z-20 bg-white rounded-full p-2 shadow-md">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-            
-            <div class="w-full md:w-5/12 bg-gray-100 flex items-center justify-center overflow-hidden relative h-96 md:h-auto">
-                <img id="modal-teacher-img" src="" alt="Teacher" class="w-full h-full object-cover">
-            </div>
-            
-            <div class="w-full md:w-7/12 p-8 md:p-10 flex flex-col overflow-y-auto bg-white">
-                <div class="mb-8">
-                    <h3 class="text-3xl font-black text-gray-900 mb-1"><span id="modal-teacher-name"></span><span id="modal-teacher-suffix">T</span></h3>
-                    <p id="modal-teacher-role" class="text-gray-500 text-sm font-bold uppercase tracking-wider"></p>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-6 mb-8 pb-8 border-b border-gray-200">
-                    <div>
-                        <p class="text-xs text-gray-500 uppercase font-bold mb-1">담당 학년</p>
-                        <p id="modal-teacher-grade" class="text-lg font-bold"></p>
-                    </div>
-                    <div>
-                        <p class="text-xs text-gray-500 uppercase font-bold mb-1">대표 정보</p>
-                        <p id="modal-teacher-info" class="text-lg font-bold"></p>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-4 gap-4 mb-8 text-center">
-                    <div class="border-r border-gray-100 px-2">
-                        <div class="text-imperial-blue text-2xl mb-2"><i class="fas fa-square-root-alt" id="modal-subject-icon"></i></div>
-                        <p id="modal-teacher-subject" class="text-sm font-bold text-gray-800"></p>
-                    </div>
-                    <div class="border-r border-gray-100 px-2">
-                        <div class="text-gray-400 text-xs font-bold uppercase mb-1" id="modal-label-career">강의경력</div>
-                        <p id="modal-teacher-career" class="text-sm font-bold text-gray-800"></p>
-                    </div>
-                    <div class="border-r border-gray-100 px-2">
-                        <div class="text-gray-400 text-xs font-bold uppercase mb-1" id="modal-label-students">누적수강생</div>
-                        <p id="modal-teacher-students" class="text-sm font-bold text-gray-800"></p>
-                    </div>
-                    <div class="px-2">
-                        <div class="text-gray-400 text-xs font-bold uppercase mb-1">성적향상</div>
-                        <p id="modal-teacher-rate" class="text-sm font-bold text-gray-800"></p>
-                    </div>
-                </div>
-
-                <!-- TA Word Section (Dynamically shown) -->
-                <div id="modal-ta-word-container" class="mb-8 hidden bg-gray-50 p-6 rounded-lg border-l-4 border-imperial-blue">
-                    <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2"><i class="fas fa-quote-left text-imperial-blue"></i> 조교의 한마디</h4>
-                    <p id="modal-ta-word" class="text-sm text-gray-700 leading-relaxed break-keep"></p>
-                </div>
-                
-                <div id="modal-btn-container" class="space-y-3 mt-auto">
-                    <button onclick="closeTeacherModal(); window.location.href='#timetable'" class="w-full py-4 border-2 border-black text-black font-bold hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2">
-                        <i class="far fa-calendar-alt"></i> 수업 시간표 보기
-                    </button>
-                    <button onclick="closeTeacherModal(); openConsultModal()" class="block w-full py-4 bg-imperial-blue text-white font-bold text-center hover:bg-blue-800 transition-colors shadow-lg">
-                        상담 예약하기
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- System Section -->
     <section id="system" class="py-24 bg-imperial-black text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -476,27 +482,9 @@
                     <span class="text-imperial-blue font-bold tracking-wider uppercase text-sm mb-2 block">Why Imperial?</span>
                     <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">성적이 오를 수밖에 없는<br>독보적인 시스템</h2>
                     <div class="space-y-8">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center text-imperial-blue text-xl flex-shrink-0"><i class="fas fa-microscope"></i></div>
-                            <div>
-                                <h3 class="text-xl font-bold mb-2">초정밀 학습 진단</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed">단순 레벨테스트가 아닙니다. 딥러닝 기반 분석으로 학생의 취약점을 현미경처럼 찾아내어 개인별 맞춤 커리큘럼을 제시합니다.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center text-imperial-blue text-xl flex-shrink-0"><i class="fas fa-clock"></i></div>
-                            <div>
-                                <h3 class="text-xl font-bold mb-2">24/7 밀착 관리</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed">수업이 끝났다고 끝이 아닙니다. SKY 조교진의 실시간 질의응답과 과제 관리로 학습 공백을 완벽하게 메웁니다.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center text-imperial-blue text-xl flex-shrink-0"><i class="fas fa-file-alt"></i></div>
-                            <div>
-                                <h3 class="text-xl font-bold mb-2">학교별 내신 자료실</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed">영일고, 대일고, 강서고 등 지역 학교 기출문제를 10년 치 이상 분석하여 적중률 높은 자체 교재를 제공합니다.</p>
-                            </div>
-                        </div>
+                        <div class="flex gap-4"><div class="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center text-imperial-blue text-xl flex-shrink-0"><i class="fas fa-microscope"></i></div><div><h3 class="text-xl font-bold mb-2">초정밀 학습 진단</h3><p class="text-gray-400 text-sm leading-relaxed">단순 레벨테스트가 아닙니다. 딥러닝 기반 분석으로 학생의 취약점을 현미경처럼 찾아내어 개인별 맞춤 커리큘럼을 제시합니다.</p></div></div>
+                        <div class="flex gap-4"><div class="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center text-imperial-blue text-xl flex-shrink-0"><i class="fas fa-clock"></i></div><div><h3 class="text-xl font-bold mb-2">24/7 밀착 관리</h3><p class="text-gray-400 text-sm leading-relaxed">수업이 끝났다고 끝이 아닙니다. SKY 조교진의 실시간 질의응답과 과제 관리로 학습 공백을 완벽하게 메웁니다.</p></div></div>
+                        <div class="flex gap-4"><div class="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center text-imperial-blue text-xl flex-shrink-0"><i class="fas fa-file-alt"></i></div><div><h3 class="text-xl font-bold mb-2">학교별 내신 자료실</h3><p class="text-gray-400 text-sm leading-relaxed">영일고, 대일고, 강서고 등 지역 학교 기출문제를 10년 치 이상 분석하여 적중률 높은 자체 교재를 제공합니다.</p></div></div>
                     </div>
                 </div>
                 <div class="relative">
@@ -572,6 +560,127 @@
             </div>
         </div>
     </section>
+
+    <!-- NEW SECTION: Tuition Fee Info -->
+    <section id="tuition" class="py-24 bg-gray-50 relative border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">교습비 안내</h2>
+                <p class="text-gray-500 mt-2">학생의 꿈을 위한 가치 있는 투자, 임페리얼의 투명한 교육비 안내입니다.</p>
+            </div>
+
+            <!-- Tuition Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="tuition-container">
+                <!-- JS populated -->
+            </div>
+
+            <!-- Policy Box -->
+            <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm text-center">
+                <h4 class="text-lg font-bold text-gray-900 mb-4"><i class="fas fa-info-circle text-imperial-blue mr-2"></i>수강료 및 결석 규정 안내</h4>
+                <p id="tuition-policy" class="text-gray-600 text-sm leading-relaxed keep-all"></p>
+            </div>
+
+            <!-- Legal Button (Inconspicuous) -->
+            <div class="text-center mt-8">
+                <button onclick="openLegalModal()" class="text-xs text-gray-400 hover:text-gray-600 underline decoration-gray-300 decoration-1 underline-offset-2 transition-colors">
+                    교습비 등 게시표 확인하기
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Tuition Modal -->
+    <div id="legal-tuition-modal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeLegalModal()"></div>
+        <div class="relative w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+            <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-gray-50">
+                <h3 class="text-lg font-bold text-gray-900">학원 교습비 등 게시표</h3>
+                <button onclick="closeLegalModal()" class="text-gray-400 hover:text-gray-900"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            <div class="overflow-auto p-0">
+                <table class="min-w-full divide-y divide-gray-200 text-sm">
+                    <thead class="bg-gray-100 sticky top-0">
+                        <tr>
+                            <th class="px-6 py-3 text-left font-bold text-gray-600">교습과목</th>
+                            <th class="px-6 py-3 text-left font-bold text-gray-600">교습과정</th>
+                            <th class="px-6 py-3 text-center font-bold text-gray-600">정원</th>
+                            <th class="px-6 py-3 text-center font-bold text-gray-600">월 교습시간(분)</th>
+                            <th class="px-6 py-3 text-right font-bold text-gray-600">교습비(원)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="legal-tuition-body" class="bg-white divide-y divide-gray-200">
+                        <!-- JS Populated -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teacher Modal -->
+    <div id="teacher-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center overflow-y-auto">
+        <div class="fixed inset-0 bg-black bg-opacity-70 transition-opacity" onclick="closeTeacherModal()"></div>
+        <div class="glass-modal relative z-10 w-full max-w-5xl mx-4 my-8 rounded-lg shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]">
+            <button onclick="closeTeacherModal()" class="absolute top-4 right-4 text-gray-500 hover:text-black z-20 bg-white rounded-full p-2 shadow-md">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="w-full md:w-5/12 bg-gray-100 flex items-center justify-center overflow-hidden relative h-96 md:h-auto">
+                <img id="modal-teacher-img" src="" alt="Teacher" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="w-full md:w-7/12 p-8 md:p-10 flex flex-col overflow-y-auto bg-white">
+                <div class="mb-8">
+                    <h3 class="text-3xl font-black text-gray-900 mb-1"><span id="modal-teacher-name"></span><span id="modal-teacher-suffix">T</span></h3>
+                    <p id="modal-teacher-role" class="text-gray-500 text-sm font-bold uppercase tracking-wider"></p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6 mb-8 pb-8 border-b border-gray-200">
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase font-bold mb-1">담당 학년</p>
+                        <p id="modal-teacher-grade" class="text-lg font-bold"></p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase font-bold mb-1">대표 정보</p>
+                        <p id="modal-teacher-info" class="text-lg font-bold"></p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-4 gap-4 mb-8 text-center">
+                    <div class="border-r border-gray-100 px-2">
+                        <div class="text-imperial-blue text-2xl mb-2"><i class="fas fa-square-root-alt" id="modal-subject-icon"></i></div>
+                        <p id="modal-teacher-subject" class="text-sm font-bold text-gray-800"></p>
+                    </div>
+                    <div class="border-r border-gray-100 px-2">
+                        <div class="text-gray-400 text-xs font-bold uppercase mb-1" id="modal-label-career">강의경력</div>
+                        <p id="modal-teacher-career" class="text-sm font-bold text-gray-800"></p>
+                    </div>
+                    <div class="border-r border-gray-100 px-2">
+                        <div class="text-gray-400 text-xs font-bold uppercase mb-1" id="modal-label-students">누적수강생</div>
+                        <p id="modal-teacher-students" class="text-sm font-bold text-gray-800"></p>
+                    </div>
+                    <div class="px-2">
+                        <div class="text-gray-400 text-xs font-bold uppercase mb-1">성적향상</div>
+                        <p id="modal-teacher-rate" class="text-sm font-bold text-gray-800"></p>
+                    </div>
+                </div>
+
+                <!-- TA Word Section (Dynamically shown) -->
+                <div id="modal-ta-word-container" class="mb-8 hidden bg-gray-50 p-6 rounded-lg border-l-4 border-imperial-blue">
+                    <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2"><i class="fas fa-quote-left text-imperial-blue"></i> 조교의 한마디</h4>
+                    <p id="modal-ta-word" class="text-sm text-gray-700 leading-relaxed break-keep"></p>
+                </div>
+                
+                <div id="modal-btn-container" class="space-y-3 mt-auto">
+                    <button onclick="closeTeacherModal(); window.location.href='#timetable'" class="w-full py-4 border-2 border-black text-black font-bold hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2">
+                        <i class="far fa-calendar-alt"></i> 수업 시간표 보기
+                    </button>
+                    <button onclick="closeTeacherModal(); openConsultModal()" class="block w-full py-4 bg-imperial-blue text-white font-bold text-center hover:bg-blue-800 transition-colors shadow-lg">
+                        상담 예약하기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Consultation Modal -->
     <div id="consult-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
@@ -681,7 +790,6 @@
     <!-- LOGIC LAYER -->
     <script>
         // Main Application Logic
-        // 수정할 필요가 거의 없습니다. 위쪽 [데이터 설정 구역]을 이용하세요.
         
         let currentTeacherImages = [];
         let currentImageIndex = 0;
@@ -694,8 +802,57 @@
             filterTeachers('all');
             initTeacherFilter(); 
             renderTimetable();
+            renderTuition(); // New Function Call
             initCounters(); 
         });
+
+        // New Tuition Render Function
+        function renderTuition() {
+            const container = document.getElementById('tuition-container');
+            const policyText = document.getElementById('tuition-policy');
+            
+            // Set Policy Text
+            if(policyText) policyText.innerHTML = DB.tuition.policy;
+
+            // Render Fee Cards
+            if(container) {
+                container.innerHTML = '';
+                DB.tuition.summary.forEach(item => {
+                    const card = `
+                        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-imperial-blue transition-colors flex justify-between items-center group">
+                            <span class="font-bold text-gray-700 group-hover:text-imperial-blue text-lg">${item.title}</span>
+                            <span class="font-black text-xl text-gray-900">${item.price}<span class="text-sm font-normal text-gray-500 ml-1">원</span></span>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', card);
+                });
+            }
+        }
+
+        // New Legal Modal Functions
+        function openLegalModal() {
+            const tbody = document.getElementById('legal-tuition-body');
+            tbody.innerHTML = '';
+            
+            DB.tuition.legalList.forEach(item => {
+                const row = `
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.category}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-bold">${item.subject}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">${item.capacity}명</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">${item.time}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-medium">${item.price}</td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+            
+            document.getElementById('legal-tuition-modal').classList.remove('hidden');
+        }
+
+        function closeLegalModal() {
+            document.getElementById('legal-tuition-modal').classList.add('hidden');
+        }
 
         function renderSuccessStories() {
             for (const [subject, stories] of Object.entries(DB.successStories)) {
@@ -724,18 +881,14 @@
             }
 
             filtered.forEach((t) => {
-                // TA Suffix logic
                 const suffix = t.subject === 'TA' ? '' : '선생님'; 
                 const nameDisplay = t.subject === 'TA' ? `${t.name} <span class="text-sm font-normal text-gray-500">TA</span>` : `${t.name} <span class="text-sm font-normal text-gray-500">선생님</span>`;
 
                 const card = `
                     <div class="group bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:-translate-y-1" onclick="openTeacherModal(${t.id})">
-                        <!-- Image Area -->
                         <div class="relative w-full aspect-square overflow-hidden bg-gray-200">
                             <img src="${(t.imgs && t.imgs.length > 0) ? t.imgs[0] : DEFAULT_PROFILE_IMG}" alt="${t.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='${DEFAULT_PROFILE_IMG}'">
                         </div>
-                        
-                        <!-- Content Area -->
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
@@ -744,14 +897,11 @@
                                 </div>
                                 <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">${t.subject}</span>
                             </div>
-                            
-                            <!-- Impact Line -->
                             <div class="mt-3 mb-4">
                                 <p class="text-gray-800 text-sm font-bold border-l-4 border-imperial-blue pl-3 py-1 bg-gray-50 rounded-r leading-relaxed break-keep">
                                     "${t.impact}"
                                 </p>
                             </div>
-                            
                             <button class="w-full py-3 bg-white border border-gray-200 text-sm font-bold text-gray-600 hover:bg-black hover:text-white hover:border-black transition-colors rounded-lg flex items-center justify-center gap-2 group-hover:bg-gray-50">
                                 자세히 보기 <i class="fas fa-chevron-right text-xs opacity-50"></i>
                             </button>
@@ -785,7 +935,6 @@
             document.getElementById('modal-teacher-students').innerText = teacher.students;
             document.getElementById('modal-teacher-rate').innerText = teacher.rate;
 
-            // Dynamic Labels & Sections for TA vs Teacher
             document.getElementById('modal-label-career').innerText = isTA ? '조교 경력' : '강의경력';
             document.getElementById('modal-label-students').innerText = isTA ? '누적 클리닉수' : '누적수강생';
 
@@ -844,7 +993,6 @@
             } else {
                 noData.classList.add('hidden');
                 filtered.forEach(c => {
-                    // Find teacher ID if exists for clickable name
                     const teacherObj = DB.teachers.find(t => t.name === c.teacher);
                     const teacherNameHtml = teacherObj 
                         ? `<button onclick="openTeacherModal(${teacherObj.id})" class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-xs font-semibold hover:bg-imperial-blue hover:text-white transition-colors cursor-pointer">${c.teacher} T</button>`
