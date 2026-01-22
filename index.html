@@ -102,25 +102,31 @@
 </head>
 <body class="font-sans text-gray-900 antialiased selection:bg-imperial-blue selection:text-white">
 
-    <!-- DATA LAYER -->
+    <!-- ==================================================================================== -->
+    <!-- [관리자 데이터 설정 구역] 여기만 수정하면 홈페이지 내용이 바뀝니다. -->
+    <!-- ==================================================================================== -->
     <script>
-        // 1. Default Profile Image Constant (Updated to reliable source)
+        // 1. 기본 설정 (프로필 사진이 없을 때 나올 이미지)
         const DEFAULT_PROFILE_IMG = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
 
-        const DB = {
+        // 2. 홈페이지 데이터 모음
+        const IMPERIAL_DATA = {
+            // [강사 및 TA 목록]
+            // subject: '수학', '영어', '국어', '과학', 'TA' 중 하나
+            // imgs: 사진 URL을 배열로 입력. 없으면 [] 빈 괄호 유지 (자동으로 기본 이미지 적용됨)
             teachers: [
-                { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "35년", students: "4000+", rate: "95%", impact: "영일고/강서고 내신·수능 완벽 대비", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
+                { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "31년", students: "4000+", rate: "95%", impact: "영일고/강서고 내신·수능 완벽 대비", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
                 { id: 2, name: "장인자", subject: "수학", role: "수학과 전임 강사", grade: "중2 - 고1", info: "고려대학원 영재교육전공", career: "30년", students: "1200+", rate: "97%", impact: "30년 경력의 압도적 관리 노하우", imgs: ["https://i.postimg.cc/MZ9jWyWY/2-1.jpg"] },
                 { id: 3, name: "김준혁", subject: "수학", role: "부원장 / 수학과 대표", grade: "고2 - 고3", info: "Georgia Tech 졸업", career: "11년", students: "1400+", rate: "98%", impact: "Georgia Tech 졸업 / 심화 수학 전문가", imgs: ["https://i.postimg.cc/MZ9jWyWD/3-1.jpg"] },
-                { id: 4, name: "오수영", subject: "수학", role: "수학과 전임 강사", grade: "고2 - 고3", info: "임페리얼 수능 전임", career: "3년", students: "100+", rate: "90%", impact: "수능 수학 1등급 메이커", imgs: ["https://i.postimg.cc/2j0Bz4zT/4-1.jpg"] },
+                { id: 4, name: "오수영", subject: "수학", role: "수학과 전임 강사", grade: "고2 - 고3", info: "임페리얼 수능 전임", career: "6년", students: "100+", rate: "90%", impact: "수능 수학 1등급 메이커", imgs: ["https://i.postimg.cc/2j0Bz4zT/4-1.jpg"] },
                 { id: 7, name: "신요한", subject: "영어", role: "영어과 대표", grade: "고1 - 고3", info: "성균관대 법학과 졸업", career: "17년", students: "500+", rate: "97%", impact: "성균관대 법대 / 수능 영어 1등급", imgs: ["https://i.postimg.cc/NGdrg1gN/7-1.jpg"] },
                 { id: 8, name: "최성민", subject: "영어", role: "영어과 전임 강사", grade: "중1 - 중3", info: "대치동 전임", career: "10년", students: "200+", rate: "90%", impact: "대치동 출신 / 중등 영어 완성", imgs: ["https://i.postimg.cc/gcg6YvYS/8-1.jpg"] },
                 { id: 9, name: "정석홍", subject: "국어", role: "국어과 대표", grade: "고1 - 고3", info: "임페리얼 국어 전임", career: "5년", students: "100+", rate: "91%", impact: "수능 국어 문해력/비문학 전문가", imgs: ["https://i.postimg.cc/sfTZVpV0/9-1.jpg"] },
                 { id: 10, name: "박성채", subject: "과학", role: "과학과 대표", grade: "고1 - 고3", info: "고려대 기계공학과", career: "3년", students: "90+", rate: "92%", impact: "고려대 기계공학 / 과학 탐구 마스터", imgs: ["https://i.postimg.cc/ryft8S83/10-1.jpg"] },
                 { id: 5, name: "최아인", subject: "영어", role: "영어과 파트 강사", grade: "고3", info: "현) 메가스터디 노량진", career: "4년", students: "300+", rate: "94%", impact: "메가스터디 출신 / 고3 실전 영어", imgs: ["https://i.postimg.cc/bYm2zQzH/5-1.jpg"] },
-                { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "과학 전문", career: "2년", students: "50+", rate: "90%", impact: "꼼꼼한 개념 정리 / 과학 내신 대비", imgs: [] },
+                { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "과학 전공 / 연구원 출신", career: "5년", students: "50+", rate: "90%", impact: "꼼꼼한 개념 정리 / 과학 내신 대비", imgs: [] },
                 
-                // [Update]: TA Group Updated with Details
+                // [TA(조교) 그룹] subject를 반드시 'TA'로 설정하세요.
                 { 
                     id: 6, name: "오혜원", subject: "TA", role: "수학 클리닉", grade: "중/고등", info: "서울대 정치외교학과", 
                     career: "2년", students: "250+", rate: "95%", impact: "서울대 멘토의 꼼꼼한 관리", 
@@ -146,6 +152,8 @@
                     word: "수학 문제 앞에서 위축되고, 어디서부터 손대야 할지 몰라 답답한가요? 저는 단순히 답을 알려주는 것을 넘어, 여러분이 왜 이 부분에서 막혔는지 '진단'하고, 다음 단계로 나아갈 수 있도록 '처방'해 드립니다."
                 }
             ],
+
+            // [시간표 목록]
             classes: [
                 { grade: '중1', subject: '수학', title: '특목고 대비반', day: '월/수/금', time: '4:00 – 6:00', teacher: '김기중' },
                 { grade: '중1', subject: '수학', title: '중1 수학', day: '화/목 | 토', time: '3:00 – 5:00 | 2:00 – 4:00', teacher: '장인자' },
@@ -184,6 +192,8 @@
                 { grade: '고3', subject: '과학', title: '물리학', day: '일', time: '4:00 – 7:00', teacher: '박성채' },
                 { grade: '고3', subject: '과학', title: '생명과학Ⅰ', day: '토', time: '1:00 – 4:00', teacher: '김찬혁' }
             ],
+
+            // [성적 향상 사례]
             successStories: {
                 math: [
                     "2023 노OO 내신 5등급 <span class='text-imperial-blue font-bold'>→ 2023 전교 1등</span>",
@@ -207,6 +217,9 @@
             }
         };
     </script>
+    <!-- ==================================================================================== -->
+    <!-- [데이터 설정 구역 끝] -->
+    <!-- ==================================================================================== -->
 
     <!-- Navigation (Fixed & Glass) -->
     <nav class="fixed w-full z-50 transition-all duration-300 glass" id="navbar">
@@ -294,7 +307,7 @@
                     <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">누적 수강생</div>
                 </div>
                 <div>
-                    <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="95">0</div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="96">0</div>
                     <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">성적 향상률 (%)</div>
                 </div>
                 <div>
@@ -667,15 +680,21 @@
 
     <!-- LOGIC LAYER -->
     <script>
+        // Main Application Logic
+        // 수정할 필요가 거의 없습니다. 위쪽 [데이터 설정 구역]을 이용하세요.
+        
         let currentTeacherImages = [];
         let currentImageIndex = 0;
+        
+        // Link config to logic
+        const DB = IMPERIAL_DATA; 
 
         document.addEventListener('DOMContentLoaded', () => {
             renderSuccessStories(); 
             filterTeachers('all');
             initTeacherFilter(); 
             renderTimetable();
-            initCounters(); // Initialize stats animation
+            initCounters(); 
         });
 
         function renderSuccessStories() {
@@ -687,7 +706,6 @@
             }
         }
 
-        // 2. Teacher Card Design Update (Visibility & Persuasion)
         function filterTeachers(filter, btn) {
             const container = document.getElementById('teacher-container');
             container.innerHTML = ''; 
@@ -707,28 +725,27 @@
 
             filtered.forEach((t) => {
                 // TA Suffix logic
-                const suffix = t.subject === 'TA' ? '' : '선생님'; // TA는 이름 뒤에 선생님을 붙이지 않거나 다른 방식 적용
+                const suffix = t.subject === 'TA' ? '' : '선생님'; 
                 const nameDisplay = t.subject === 'TA' ? `${t.name} <span class="text-sm font-normal text-gray-500">TA</span>` : `${t.name} <span class="text-sm font-normal text-gray-500">선생님</span>`;
 
                 const card = `
                     <div class="group bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:-translate-y-1" onclick="openTeacherModal(${t.id})">
                         <!-- Image Area -->
                         <div class="relative w-full aspect-square overflow-hidden bg-gray-200">
-                            <img src="${t.imgs[0] || DEFAULT_PROFILE_IMG}" alt="${t.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='${DEFAULT_PROFILE_IMG}'">
+                            <img src="${(t.imgs && t.imgs.length > 0) ? t.imgs[0] : DEFAULT_PROFILE_IMG}" alt="${t.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='${DEFAULT_PROFILE_IMG}'">
                         </div>
                         
-                        <!-- Content Area (Clean & Readable) -->
+                        <!-- Content Area -->
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
                                     <h3 class="text-xl font-black text-gray-900">${nameDisplay}</h3>
-                                    <!-- Role moved here for visibility -->
                                     <p class="text-imperial-blue font-bold text-xs uppercase tracking-wider mt-1">${t.role}</p>
                                 </div>
                                 <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">${t.subject}</span>
                             </div>
                             
-                            <!-- Impact Line (Persuasion) -->
+                            <!-- Impact Line -->
                             <div class="mt-3 mb-4">
                                 <p class="text-gray-800 text-sm font-bold border-l-4 border-imperial-blue pl-3 py-1 bg-gray-50 rounded-r leading-relaxed break-keep">
                                     "${t.impact}"
@@ -749,9 +766,8 @@
             const teacher = DB.teachers.find(t => t.id === id);
             if(!teacher) return;
 
-            // Simple Image Load (No Slideshow)
             const imgEl = document.getElementById('modal-teacher-img');
-            imgEl.src = teacher.imgs[0] || DEFAULT_PROFILE_IMG;
+            imgEl.src = (teacher.imgs && teacher.imgs.length > 0) ? teacher.imgs[0] : DEFAULT_PROFILE_IMG;
             imgEl.onerror = function() {
                 this.src = DEFAULT_PROFILE_IMG;
             };
@@ -796,11 +812,8 @@
             document.getElementById('teacher-modal').classList.add('hidden');
         }
 
-        // Populate Teacher Filter
         function initTeacherFilter() {
             const select = document.getElementById('teacher-filter');
-            // Filter out TAs from the timetable filter dropdown if needed, or keep them. 
-            // Usually timetable is for instructors. I'll include all for now.
             const teachers = [...new Set(DB.teachers.map(t => t.name))];
             teachers.forEach(name => {
                 const option = document.createElement('option');
@@ -813,7 +826,7 @@
         function renderTimetable() {
             const gradeVal = document.getElementById('grade-filter').value;
             const subjectVal = document.getElementById('subject-filter').value;
-            const teacherVal = document.getElementById('teacher-filter').value; // Teacher Filter Value
+            const teacherVal = document.getElementById('teacher-filter').value; 
             const tbody = document.getElementById('timetable-body');
             const noData = document.getElementById('no-classes');
             
@@ -882,8 +895,6 @@
         async function handleConsultSubmit(e) {
             e.preventDefault(); 
             
-            // 1. Data Collection (Improved Robustness)
-            // placeholder에 의존하지 않고 name 속성으로 정확하게 데이터를 가져옵니다.
             const form = e.target;
             const parentName = form.parentName.value;
             const studentName = form.studentName.value;
@@ -900,10 +911,8 @@
             loader.classList.remove('hidden');
 
             try {
-                // 2. [Growth Hacking] Real-time Admin Alert (Telegram)
                 await sendTelegramAlert({ parentName, studentName, phone, grade, subject });
 
-                // 3. UI Feedback (Success)
                 text.textContent = '신청 완료!';
                 loader.classList.add('hidden');
                 
@@ -918,17 +927,16 @@
                 setTimeout(() => {
                     closeConsultModal();
                     text.textContent = '무료 진단 예약하기';
-                    form.reset(); // Form Reset
+                    form.reset(); 
                     btn.disabled = false;
                 }, 1500);
 
             } catch (error) {
-                console.error("Submission error details:", error); // 개발자 도구 콘솔에서 자세한 에러 확인 가능
+                console.error("Submission error details:", error); 
                 text.textContent = '다시 시도해주세요';
                 btn.disabled = false;
                 loader.classList.add('hidden');
                 
-                // 사용자에게 봇 시작 여부를 알림
                 Toastify({
                     text: "전송 실패. 텔레그램 봇 '시작' 버튼을 눌렀는지 확인해주세요.",
                     duration: 4000,
@@ -939,7 +947,6 @@
             }
         }
 
-        // [Service Value]: 관리자에게 실시간 알림을 보내 상담 골든타임을 놓치지 않게 합니다.
         async function sendTelegramAlert(data) {
             const BOT_TOKEN = '8435500018:AAGY4gcNhiRBx2fHf8OzbHy74wIkzN5qvB0'; 
             const CHAT_ID = '8466973475';
@@ -956,8 +963,6 @@
 * 관리자님, 빠른 연락 부탁드립니다.
             `;
 
-            // [Growth Hacking Fix]: 브라우저 CORS 보안 정책을 우회하기 위해 프록시 사용
-            // 일반적인 fetch는 브라우저에서 차단되므로 corsproxy.io를 경유합니다.
             const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
             const proxyUrl = `https://corsproxy.io/?` + encodeURIComponent(telegramUrl);
             
@@ -974,7 +979,6 @@
             });
 
             if (!response.ok) {
-                // 텔레그램 API가 거부한 경우 (예: 봇 차단, 잘못된 토큰 등)
                 const errorData = await response.json();
                 throw new Error(`Telegram API Error: ${errorData.description}`);
             }
@@ -984,16 +988,15 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // Stats Counter Animation
         function initCounters() {
             const counters = document.querySelectorAll('.counter');
-            const options = { threshold: 0.5 }; // Trigger when 50% visible
+            const options = { threshold: 0.5 }; 
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const target = +entry.target.getAttribute('data-target');
-                        const duration = 2000; // 2s
+                        const duration = 2000; 
                         const start = 0;
                         const startTime = performance.now();
                         
@@ -1001,7 +1004,6 @@
                             const elapsedTime = currentTime - startTime;
                             const progress = Math.min(elapsedTime / duration, 1);
                             
-                            // Ease-out effect
                             const easeOut = 1 - Math.pow(1 - progress, 3);
                             
                             const current = Math.floor(easeOut * target);
