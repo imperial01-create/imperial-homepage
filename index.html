@@ -104,6 +104,9 @@
 
     <!-- DATA LAYER -->
     <script>
+        // 1. Default Profile Image Constant (Updated to reliable source)
+        const DEFAULT_PROFILE_IMG = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+
         const DB = {
             teachers: [
                 { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "35년", students: "4000+", rate: "95%", impact: "영일고/강서고 내신·수능 완벽 대비", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
@@ -115,8 +118,33 @@
                 { id: 9, name: "정석홍", subject: "국어", role: "국어과 대표", grade: "고1 - 고3", info: "임페리얼 국어 전임", career: "5년", students: "100+", rate: "91%", impact: "수능 국어 문해력/비문학 전문가", imgs: ["https://i.postimg.cc/sfTZVpV0/9-1.jpg"] },
                 { id: 10, name: "박성채", subject: "과학", role: "과학과 대표", grade: "고1 - 고3", info: "고려대 기계공학과", career: "3년", students: "90+", rate: "92%", impact: "고려대 기계공학 / 과학 탐구 마스터", imgs: ["https://i.postimg.cc/ryft8S83/10-1.jpg"] },
                 { id: 5, name: "최아인", subject: "영어", role: "영어과 파트 강사", grade: "고3", info: "현) 메가스터디 노량진", career: "4년", students: "300+", rate: "94%", impact: "메가스터디 출신 / 고3 실전 영어", imgs: ["https://i.postimg.cc/bYm2zQzH/5-1.jpg"] },
-                { id: 6, name: "오혜원", subject: "수학", role: "수학과 파트 강사", grade: "중3 - 고1", info: "서울대 정치외교학과", career: "1년", students: "50+", rate: "93%", impact: "서울대 정외과 / 멘토링 수학", imgs: ["https://i.postimg.cc/ryft8S8f/6-1.jpg"] },
-                { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "과학 전문", career: "2년", students: "50+", rate: "90%", impact: "꼼꼼한 개념 정리 / 과학 내신 대비", imgs: ["https://via.placeholder.com/500x500/ccc/fff?text=Coming+Soon"] }
+                { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "과학 전문", career: "2년", students: "50+", rate: "90%", impact: "꼼꼼한 개념 정리 / 과학 내신 대비", imgs: [] },
+                
+                // [Update]: TA Group Updated with Details
+                { 
+                    id: 6, name: "오혜원", subject: "TA", role: "수학 클리닉", grade: "중/고등", info: "서울대 정치외교학과", 
+                    career: "2년", students: "250+", rate: "95%", impact: "서울대 멘토의 꼼꼼한 관리", 
+                    imgs: ["https://i.postimg.cc/ryft8S8f/6-1.jpg"],
+                    word: "이화여고 재학 시절, 치열한 내신 경쟁 속에서도 전교권을 놓치지 않았던 비결은 화려한 선행이 아닌 '집요한 개념 파고들기'였습니다. 서울대학교 합격의 밑거름이 된 저만의 꼼꼼한 공부법을 후배들에게 아낌없이 전수합니다."
+                },
+                { 
+                    id: 12, name: "김민성", subject: "TA", role: "수학 클리닉", grade: "중/고등", info: "서울대 수의학과", 
+                    career: "2년", students: "80+", rate: "97%", impact: "서울대 수의대/의대/카이스트", 
+                    imgs: ["https://i.postimg.cc/tCQCqCsw/13-1.jpg"],
+                    word: "저는 '타고난 수학 천재'가 아니었습니다. 남들 다 하는 선행 학습 없이 고등학교에 입학했고, 그 막막함을 누구보다 잘 압니다. 그렇기에 여러분이 어디서 헷갈리는지, 왜 점수가 안 오르는지 정확하게 짚어낼 수 있습니다."
+                },
+                { 
+                    id: 13, name: "이채연", subject: "TA", role: "수학 클리닉", grade: "중/고등", info: "성신여대 수학과", 
+                    career: "2년", students: "100+", rate: "90%", impact: "수학 전공의 깊은 개념", 
+                    imgs: ["https://i.postimg.cc/WbLbNbdH/12-1.jpg"],
+                    word: "진도가 너무 빨라서, 혹은 질문하면 혼날까 봐 모르는 부분을 그냥 넘어가고 있나요? 저와의 시간에는 그런 걱정을 내려놓아도 좋습니다. 화려한 스킬보다 중요한 것은 '흔들리지 않는 기초'입니다. 수학과 전공자의 깊이 있는 시선으로, 가장 쉬운 언어로 여러분의 기초를 다시 세워드립니다."
+                },
+                { 
+                    id: 14, name: "한채영", subject: "TA", role: "수학 클리닉", grade: "중/고등", info: "가톨릭대 간호학과", 
+                    career: "2년", students: "130+", rate: "93%", impact: "이대부고 전교권의 공부법", 
+                    imgs: ["https://i.postimg.cc/m2f2L2Pn/11-1.jpg"],
+                    word: "수학 문제 앞에서 위축되고, 어디서부터 손대야 할지 몰라 답답한가요? 저는 단순히 답을 알려주는 것을 넘어, 여러분이 왜 이 부분에서 막혔는지 '진단'하고, 다음 단계로 나아갈 수 있도록 '처방'해 드립니다."
+                }
             ],
             classes: [
                 { grade: '중1', subject: '수학', title: '특목고 대비반', day: '월/수/금', time: '4:00 – 6:00', teacher: '김기중' },
@@ -257,24 +285,35 @@
         </div>
     </section>
 
-    <!-- Stats Section (Social Proof) - Restored -->
+    <!-- Stats Section (Social Proof) - Updated with Disclaimer -->
     <div class="bg-imperial-black py-12 border-b border-gray-800 relative z-20 -mt-2">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="4000">0</div>
-                <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">누적 수강생</div>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-8">
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="4000">0</div>
+                    <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">누적 수강생</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="95">0</div>
+                    <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">성적 향상률 (%)</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="35">0</div>
+                    <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">강사진 총 경력 (년)</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="1">0</div>
+                    <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">지역 내 평판 (위)</div>
+                </div>
             </div>
-            <div>
-                <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="95">0</div>
-                <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">성적 향상률 (%)</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="35">0</div>
-                <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">강사진 총 경력 (년)</div>
-            </div>
-            <div>
-                <div class="text-3xl md:text-4xl font-black text-white mb-1 counter" data-target="1">0</div>
-                <div class="text-xs md:text-sm text-gray-400 uppercase tracking-wider">지역 내 평판 (위)</div>
+            <!-- Disclaimer Area -->
+            <div class="border-t border-gray-800 pt-6 text-center">
+                <p class="text-[10px] text-gray-500 leading-relaxed keep-all">
+                    * 누적 수강생은 목동임페리얼학원에서 개강한 강의을 수강한 총 학생 수입니다.<br>
+                    * 성적 향상률은 목동임페리얼학원에서 강의를 듣고 성적의 향상이 있었던 학생 비율입니다.<br>
+                    * 강사진 총 경력은 강사와 조교의 모든 교육활동 경력기간의 합산입니다.<br>
+                    * 지역 내 평판은 1년 단위로 지역 내 자체 만족도 수집 결과입니다.
+                </p>
             </div>
         </div>
     </div>
@@ -339,6 +378,8 @@
                     <button class="filter-btn px-4 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-bold whitespace-nowrap hover:bg-gray-100" onclick="filterTeachers('영어', this)">영어</button>
                     <button class="filter-btn px-4 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-bold whitespace-nowrap hover:bg-gray-100" onclick="filterTeachers('국어', this)">국어</button>
                     <button class="filter-btn px-4 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-bold whitespace-nowrap hover:bg-gray-100" onclick="filterTeachers('과학', this)">과학</button>
+                    <!-- TA Filter Button Added -->
+                    <button class="filter-btn px-4 py-2 rounded-full bg-white text-gray-600 border border-gray-200 text-sm font-bold whitespace-nowrap hover:bg-gray-100" onclick="filterTeachers('TA', this)">TA</button>
                 </div>
             </div>
 
@@ -362,7 +403,7 @@
             
             <div class="w-full md:w-7/12 p-8 md:p-10 flex flex-col overflow-y-auto bg-white">
                 <div class="mb-8">
-                    <h3 class="text-3xl font-black text-gray-900 mb-1"><span id="modal-teacher-name"></span>T</h3>
+                    <h3 class="text-3xl font-black text-gray-900 mb-1"><span id="modal-teacher-name"></span><span id="modal-teacher-suffix">T</span></h3>
                     <p id="modal-teacher-role" class="text-gray-500 text-sm font-bold uppercase tracking-wider"></p>
                 </div>
                 
@@ -383,11 +424,11 @@
                         <p id="modal-teacher-subject" class="text-sm font-bold text-gray-800"></p>
                     </div>
                     <div class="border-r border-gray-100 px-2">
-                        <div class="text-gray-400 text-xs font-bold uppercase mb-1">강의경력</div>
+                        <div class="text-gray-400 text-xs font-bold uppercase mb-1" id="modal-label-career">강의경력</div>
                         <p id="modal-teacher-career" class="text-sm font-bold text-gray-800"></p>
                     </div>
                     <div class="border-r border-gray-100 px-2">
-                        <div class="text-gray-400 text-xs font-bold uppercase mb-1">누적수강생</div>
+                        <div class="text-gray-400 text-xs font-bold uppercase mb-1" id="modal-label-students">누적수강생</div>
                         <p id="modal-teacher-students" class="text-sm font-bold text-gray-800"></p>
                     </div>
                     <div class="px-2">
@@ -395,8 +436,14 @@
                         <p id="modal-teacher-rate" class="text-sm font-bold text-gray-800"></p>
                     </div>
                 </div>
+
+                <!-- TA Word Section (Dynamically shown) -->
+                <div id="modal-ta-word-container" class="mb-8 hidden bg-gray-50 p-6 rounded-lg border-l-4 border-imperial-blue">
+                    <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2"><i class="fas fa-quote-left text-imperial-blue"></i> 조교의 한마디</h4>
+                    <p id="modal-ta-word" class="text-sm text-gray-700 leading-relaxed break-keep"></p>
+                </div>
                 
-                <div class="space-y-3 mt-auto">
+                <div id="modal-btn-container" class="space-y-3 mt-auto">
                     <button onclick="closeTeacherModal(); window.location.href='#timetable'" class="w-full py-4 border-2 border-black text-black font-bold hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2">
                         <i class="far fa-calendar-alt"></i> 수업 시간표 보기
                     </button>
@@ -659,18 +706,22 @@
             }
 
             filtered.forEach((t) => {
+                // TA Suffix logic
+                const suffix = t.subject === 'TA' ? '' : '선생님'; // TA는 이름 뒤에 선생님을 붙이지 않거나 다른 방식 적용
+                const nameDisplay = t.subject === 'TA' ? `${t.name} <span class="text-sm font-normal text-gray-500">TA</span>` : `${t.name} <span class="text-sm font-normal text-gray-500">선생님</span>`;
+
                 const card = `
                     <div class="group bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:-translate-y-1" onclick="openTeacherModal(${t.id})">
                         <!-- Image Area -->
                         <div class="relative w-full aspect-square overflow-hidden bg-gray-200">
-                            <img src="${t.imgs[0]}" alt="${t.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <img src="${t.imgs[0] || DEFAULT_PROFILE_IMG}" alt="${t.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='${DEFAULT_PROFILE_IMG}'">
                         </div>
                         
                         <!-- Content Area (Clean & Readable) -->
                         <div class="p-5">
                             <div class="flex justify-between items-start mb-2">
                                 <div>
-                                    <h3 class="text-xl font-black text-gray-900">${t.name} <span class="text-sm font-normal text-gray-500">선생님</span></h3>
+                                    <h3 class="text-xl font-black text-gray-900">${nameDisplay}</h3>
                                     <!-- Role moved here for visibility -->
                                     <p class="text-imperial-blue font-bold text-xs uppercase tracking-wider mt-1">${t.role}</p>
                                 </div>
@@ -700,10 +751,14 @@
 
             // Simple Image Load (No Slideshow)
             const imgEl = document.getElementById('modal-teacher-img');
-            imgEl.src = teacher.imgs[0];
+            imgEl.src = teacher.imgs[0] || DEFAULT_PROFILE_IMG;
             imgEl.onerror = function() {
-                this.src = `https://via.placeholder.com/500x500?text=${encodeURIComponent(teacher.name)}`;
+                this.src = DEFAULT_PROFILE_IMG;
             };
+
+            const isTA = teacher.subject === 'TA';
+            const suffix = isTA ? 'TA' : 'T';
+            document.getElementById('modal-teacher-suffix').innerText = suffix;
 
             document.getElementById('modal-teacher-name').innerText = teacher.name;
             document.getElementById('modal-teacher-role').innerText = teacher.role;
@@ -714,7 +769,23 @@
             document.getElementById('modal-teacher-students').innerText = teacher.students;
             document.getElementById('modal-teacher-rate').innerText = teacher.rate;
 
-            const iconMap = { "수학": "fa-square-root-alt", "영어": "fa-language", "국어": "fa-book", "과학": "fa-flask" };
+            // Dynamic Labels & Sections for TA vs Teacher
+            document.getElementById('modal-label-career').innerText = isTA ? '조교 경력' : '강의경력';
+            document.getElementById('modal-label-students').innerText = isTA ? '누적 클리닉수' : '누적수강생';
+
+            const taContainer = document.getElementById('modal-ta-word-container');
+            const btnContainer = document.getElementById('modal-btn-container');
+            
+            if (isTA) {
+                taContainer.classList.remove('hidden');
+                document.getElementById('modal-ta-word').innerText = teacher.word || "";
+                btnContainer.classList.add('hidden');
+            } else {
+                taContainer.classList.add('hidden');
+                btnContainer.classList.remove('hidden');
+            }
+
+            const iconMap = { "수학": "fa-square-root-alt", "영어": "fa-language", "국어": "fa-book", "과학": "fa-flask", "TA": "fa-user-graduate" };
             const iconClass = iconMap[teacher.subject] || "fa-chalkboard-teacher";
             document.getElementById('modal-subject-icon').className = `fas ${iconClass}`;
 
@@ -728,6 +799,8 @@
         // Populate Teacher Filter
         function initTeacherFilter() {
             const select = document.getElementById('teacher-filter');
+            // Filter out TAs from the timetable filter dropdown if needed, or keep them. 
+            // Usually timetable is for instructors. I'll include all for now.
             const teachers = [...new Set(DB.teachers.map(t => t.name))];
             teachers.forEach(name => {
                 const option = document.createElement('option');
@@ -758,6 +831,12 @@
             } else {
                 noData.classList.add('hidden');
                 filtered.forEach(c => {
+                    // Find teacher ID if exists for clickable name
+                    const teacherObj = DB.teachers.find(t => t.name === c.teacher);
+                    const teacherNameHtml = teacherObj 
+                        ? `<button onclick="openTeacherModal(${teacherObj.id})" class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-xs font-semibold hover:bg-imperial-blue hover:text-white transition-colors cursor-pointer">${c.teacher} T</button>`
+                        : `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">${c.teacher} T</span>`;
+
                     const row = `
                         <tr class="hover:bg-gray-50 transition-colors">
                             <td class="px-6 py-4 whitespace-nowrap">
@@ -772,9 +851,7 @@
                                 <div class="text-xs text-gray-500"><i class="far fa-clock mr-1 text-gray-400"></i> ${c.time}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
-                                    ${c.teacher} T
-                                </span>
+                                ${teacherNameHtml}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                 <span class="px-2 py-1 text-xs font-bold text-green-600 bg-green-100 rounded">접수중</span>
