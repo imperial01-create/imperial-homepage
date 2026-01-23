@@ -3,11 +3,20 @@
 @tailwind utilities;
 
 @layer utilities {
-    /* 1. 커스텀 스크롤바 */
+    /* 1. 커스텀 스크롤바 (PC용) */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+    /* [Mobile Optimization] 스크롤바 숨기기 (모바일 터치 스크롤용) */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
 
     /* 2. 기본 설정 */
     html { scroll-behavior: smooth; }
@@ -31,13 +40,11 @@
         background-size: cover;
         background-position: center;
         will-change: transform; 
-        
-        /* 기본: 모바일용 작은 이미지 (데이터 절약 및 속도 향상) */
-        /* 예시 URL입니다. 실제로는 동일한 이미지의 작은 버전(w=800 정도)을 사용하시면 좋습니다. */
+        /* 모바일용 경량 이미지 */
         background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60');
     }
 
-    /* PC 화면 (768px 이상)에서는 고화질 이미지 로드 */
+    /* PC 화면 고화질 이미지 */
     @media (min-width: 768px) {
         .fixed-bg-layer {
             background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
