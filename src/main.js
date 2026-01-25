@@ -6,16 +6,16 @@ const IMPERIAL_DATA = {
     // ... (데이터는 기존과 동일하게 유지됩니다. 지면 관계상 생략하지 않고 핵심 로직에 집중합니다.) ...
     // [강사 및 TA 목록]
     teachers: [
-        { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "31년", students: "4000+", rate: "95%", impact: "고등학교 대비까지 되는 중학수학", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
-        { id: 2, name: "장인자", subject: "수학", role: "수학과 전임 강사", grade: "중2 - 고1", info: "고려대학원 영재교육전공", career: "30년", students: "1200+", rate: "97%", impact: "30년 경력의 압도적 관리 노하우", imgs: ["https://i.postimg.cc/MZ9jWyWY/2-1.jpg"] },
+        { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "31년", students: "4000+", rate: "95%", impact: "압도적인 커리어의 완벽한 결과", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
+        { id: 2, name: "장인자", subject: "수학", role: "수학과 전임 강사", grade: "중2 - 고1", info: "고려대학원 영재교육전공", career: "20년", students: "2000+", rate: "97%", impact: "20년 경력의 압도적 관리 노하우", imgs: ["https://i.postimg.cc/MZ9jWyWY/2-1.jpg"] },
         { id: 3, name: "김준혁", subject: "수학", role: "부원장 / 수학과 대표", grade: "고2 - 고3", info: "전국 학력평가 전국 1등", career: "11년", students: "1400+", rate: "98%", impact: "전국 모의고사 만점 / 심화 수학 전문가", imgs: ["https://i.postimg.cc/MZ9jWyWD/3-1.jpg"] },
-        { id: 4, name: "오수영", subject: "수학", role: "수학과 전임 강사", grade: "고2 - 고3", info: "임페리얼 수능 전임", career: "3년", students: "100+", rate: "90%", impact: "수능 수학 1등급 메이커", imgs: ["https://i.postimg.cc/2j0Bz4zT/4-1.jpg"] },
+        { id: 4, name: "오수영", subject: "수학", role: "수학과 전임 강사", grade: "고2 - 고3", info: "임페리얼 수능 수학 전임", career: "6년", students: "100+", rate: "94%", impact: "수능 수학 1등급 메이커", imgs: ["https://i.postimg.cc/2j0Bz4zT/4-1.jpg"] },
         { id: 7, name: "신요한", subject: "영어", role: "영어과 대표", grade: "고1 - 고3", info: "성균관대 법학과 졸업", career: "17년", students: "500+", rate: "97%", impact: "성균관대 법대 / 수능 영어 1등급", imgs: ["https://i.postimg.cc/NGdrg1gN/7-1.jpg"] },
-        { id: 8, name: "최성민", subject: "영어", role: "영어과 전임 강사", grade: "중1 - 중3", info: "대치동 전임", career: "10년", students: "200+", rate: "90%", impact: "대치동 출신 / 중등 영어 완성", imgs: ["https://i.postimg.cc/gcg6YvYS/8-1.jpg"] },
+        { id: 8, name: "최성민", subject: "영어", role: "영어과 전임 강사", grade: "중1 - 중3", info: "대치동 출신 강사", career: "10년", students: "200+", rate: "90%", impact: "대치동 출신 / 중등 영어 완성", imgs: ["https://i.postimg.cc/gcg6YvYS/8-1.jpg"] },
         { id: 9, name: "정석홍", subject: "국어", role: "국어과 대표", grade: "고1 - 고3", info: "임페리얼 국어 전임", career: "5년", students: "100+", rate: "91%", impact: "수능 국어 문해력/비문학 전문가", imgs: ["https://i.postimg.cc/sfTZVpV0/9-1.jpg"] },
         { id: 10, name: "박성채", subject: "과학", role: "과학과 대표", grade: "고1 - 고3", info: "고려대 기계공학과", career: "3년", students: "90+", rate: "92%", impact: "고려대 기계공학 / 과학 탐구 마스터", imgs: ["https://i.postimg.cc/ryft8S83/10-1.jpg"] },
         { id: 5, name: "최아인", subject: "영어", role: "영어과 파트 강사", grade: "고3", info: "현) 메가스터디 노량진", career: "4년", students: "300+", rate: "94%", impact: "메가스터디 출신 / 고3 실전 영어", imgs: ["https://i.postimg.cc/bYm2zQzH/5-1.jpg"] },
-        { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "과학 전문", career: "2년", students: "50+", rate: "90%", impact: "꼼꼼한 개념 정리 / 과학 내신 대비", imgs: [] },
+        { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "6등급에서 전교 1등 신화", career: "6년", students: "100+", rate: "95%", impact: "영일고 전교 1등 3명 배출", imgs: [] },
         
         // TA
         { id: 6, name: "오혜원", subject: "TA", role: "수학 클리닉", grade: "중/고등", info: "서울대 정치외교학과", career: "2년", students: "250+", rate: "95%", impact: "서울대 멘토의 꼼꼼한 관리", imgs: ["https://i.postimg.cc/ryft8S8f/6-1.jpg"], word: "이화여고 재학 시절, 치열한 내신 경쟁 속에서도 전교권을 놓치지 않았던 비결은 화려한 선행이 아닌 '집요한 개념 파고들기'였습니다." },
@@ -61,7 +61,7 @@ const IMPERIAL_DATA = {
         { grade: '고3', subject: '영어', title: '영일고3 영어', day: '월/수/금', time: '8:00 - 10:00', teacher: '신요한' },
         { grade: '고3', subject: '영어', title: '수능 영어 정규반', day: '수/금', time: '7:00 - 10:00', teacher: '최아인' },
         { grade: '고3', subject: '과학', title: '물리학 수능 대비반', day: '일', time: '4:00 – 7:00', teacher: '박성채' },
-        { grade: '고3', subject: '과학', title: '생명과학Ⅰ 수능 대비반', day: '일', time: '9:00 – 12:00', teacher: '김찬혁' }
+        { grade: '고3', subject: '과학', title: '생명과학Ⅰ 수능 대비반', day: '일', time: '4:00 – 7:00', teacher: '김찬혁' }
     ],
     // [성적 향상 사례]
     successStories: {
