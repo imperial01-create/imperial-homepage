@@ -14,7 +14,6 @@ const IMPERIAL_DATA = {
         { id: 8, name: "최성민", subject: "영어", role: "영어과 전임 강사", grade: "중1 - 중3", info: "대치동 출신 강사", career: "10년", students: "200+", rate: "90%", impact: "대치동 출신 / 중등 영어 완성", imgs: ["https://i.postimg.cc/gcg6YvYS/8-1.jpg"] },
         { id: 9, name: "정석홍", subject: "국어", role: "국어과 대표", grade: "고1 - 고3", info: "임페리얼 국어 전임", career: "5년", students: "100+", rate: "91%", impact: "수능 국어 문해력/비문학 전문가", imgs: ["https://i.postimg.cc/sfTZVpV0/9-1.jpg"] },
         { id: 10, name: "박성채", subject: "과학", role: "과학과 대표", grade: "고1 - 고3", info: "고려대 기계공학과", career: "5년", students: "90+", rate: "93%", impact: "서울대 수의학과 배출", imgs: ["https://i.postimg.cc/ryft8S83/10-1.jpg"] },
-        { id: 5, name: "최아인", subject: "영어", role: "영어과 파트 강사", grade: "고3", info: "현) 메가스터디 노량진", career: "4년", students: "300+", rate: "94%", impact: "메가스터디 출신 / 고3 실전 영어", imgs: ["https://i.postimg.cc/bYm2zQzH/5-1.jpg"] },
         { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "6등급에서 전교 1등 신화", career: "6년", students: "100+", rate: "95%", impact: "영일고 전교 1등 3명 배출", imgs: [] },
         
         // TA
@@ -59,7 +58,6 @@ const IMPERIAL_DATA = {
         { grade: '고3', subject: '수학', title: '확률과 통계', day: '토', time: '6:00 – 10:00', teacher: '오수영' },
         { grade: '고3', subject: '수학', title: '미적분', day: '토', time: '2:00 – 6:00', teacher: '오수영' },
         { grade: '고3', subject: '영어', title: '영일고3 영어', day: '월/수/금', time: '8:00 - 10:00', teacher: '신요한' },
-        { grade: '고3', subject: '영어', title: '수능 영어 정규반', day: '수/금', time: '7:00 - 10:00', teacher: '최아인' },
         { grade: '고3', subject: '과학', title: '물리학 수능 대비반', day: '일', time: '4:00 – 7:00', teacher: '박성채' },
         { grade: '고3', subject: '과학', title: '생명과학Ⅰ 수능 대비반', day: '일', time: '4:00 – 7:00', teacher: '김찬혁' }
     ],
