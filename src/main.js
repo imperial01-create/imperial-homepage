@@ -506,6 +506,7 @@ async function handleConsultSubmit(e) {
     }
 }
 
+// [수정된 텔레그램 전송 로직: 프록시 제거 및 직접 통신]
 async function sendTelegramAlert(data) {
     const BOT_TOKEN = '8435500018:AAGY4gcNhiRBx2fHf8OzbHy74wIkzN5qvB0'; 
     const CHAT_ID = '8466973475';
@@ -522,10 +523,10 @@ async function sendTelegramAlert(data) {
 * 관리자님, 빠른 연락 부탁드립니다.
     `;
 
+    // 프록시를 거치지 않고 텔레그램 서버로 직접 쏩니다.
     const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-    const proxyUrl = `https://corsproxy.io/?` + encodeURIComponent(telegramUrl);
     
-    const response = await fetch(proxyUrl, {
+    const response = await fetch(telegramUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -542,7 +543,6 @@ async function sendTelegramAlert(data) {
         throw new Error(`Telegram API Error: ${errorData.description}`);
     }
 }
-
 function toggleMobileMenu() {
     document.getElementById('mobile-menu').classList.toggle('hidden');
 }
