@@ -25,11 +25,11 @@ const IMPERIAL_DATA = {
     // [시간표 목록]
     classes: [
         { grade: '중1', subject: '수학', title: '특목고 대비반', day: '월/수/금', time: '4:00 - 6:00', teacher: '김기중' },
-        { grade: '중1', subject: '수학', title: '중1 수학', day: '화/목', time: '4:00 - 7:00', teacher: '김기중' },
+        { grade: '중1', subject: '수학', title: '중1 수학 A', day: '화/목', time: '4:30 - 7:00', teacher: '김기중' },
+        { grade: '중1', subject: '수학', title: '중1 수학 B', day: '월/수/금', time: '6:00 - 8:00', teacher: '장인자' },
         { grade: '중1', subject: '영어', title: '중1 영어', day: '월/수/금', time: '4:00 - 6:00', teacher: '최성민' },
         { grade: '중2', subject: '수학', title: '특목고 대비반', day: '월/수/금', time: '4:00 - 6:00', teacher: '김기중' },
-        { grade: '중2', subject: '수학', title: '중2 수학 B반', day: '월/수/금', time: '6:00 - 8:00', teacher: '김기중' },
-        { grade: '중2', subject: '수학', title: '중2 수학 A반', day: '월/수/금', time: '6:00 - 8:00', teacher: '장인자' },
+        { grade: '중2', subject: '수학', title: '중2 수학', day: '월/수/금', time: '6:00 - 8:00', teacher: '김기중' },
         { grade: '중2', subject: '영어', title: '중2 영어 A', day: '화/목', time: '4:30 - 7:00', teacher: '최성민' },
         { grade: '중2', subject: '영어', title: '중2 영어 B', day: '월/수/금', time: '6:00 - 8:00', teacher: '최성민' },
         { grade: '중3', subject: '수학', title: '중3 수학', day: '월/수/금', time: '4:00 - 6:00', teacher: '장인자' },
@@ -40,10 +40,11 @@ const IMPERIAL_DATA = {
         { grade: '고1', subject: '수학', title: '공통수학Ⅰ A반', day: '화/목 | 토', time: '5:00 - 7:00 | 4:00 - 6:00', teacher: '장인자' },
         { grade: '고1', subject: '수학', title: '공통수학Ⅰ S반', day: '화/목', time: '7:00 - 10:00', teacher: '장인자' },
         { grade: '고1', subject: '영어', title: '영일고1 영어', day: '월/수/금', time: '8:00 - 10:00', teacher: '신요한' },
-        { grade: '고1', subject: '과학', title: '통합과학Ⅰ', day: '토', time: '7:00 - 10:00', teacher: '김찬혁' },
+        { grade: '고1', subject: '과학', title: '통합과학Ⅰ 1반', day: '토', time: '7:00 - 10:00', teacher: '김찬혁' },
+        { grade: '고1', subject: '과학', title: '통합과학Ⅰ 2반', day: '일', time: '7:00 - 10:00', teacher: '김찬혁' },
         { grade: '고2', subject: '국어', title: '영일고2 국어', day: '토', time: '10:00 - 1:00', teacher: '정석홍' },
         { grade: '고2', subject: '수학', title: '대수 S반', day: '월/수/금', time: '8:00 - 10:00', teacher: '오수영' },
-        { grade: '고2', subject: '수학', title: '대수 A반', day: '화/목 | 토', time: '6:00 - 10:00 | 2:00 - 4:00', teacher: '오수영' },
+        { grade: '고2', subject: '수학', title: '대수 A반', day: '화/목', time: '6:00 - 10:00', teacher: '김준혁' },
         { grade: '고2', subject: '수학', title: '대수 B반', day: '월/수 | 토', time: '8:00 - 10:00 | 7:00 - 10:00', teacher: '김기중' },
         { grade: '고2', subject: '영어', title: '영일고2 영어', day: '월/수/금', time: '4:30 - 6:30', teacher: '신요한' },
         { grade: '고2', subject: '영어', title: '경복여고2 영어', day: '월/수/금', time: '6:00 - 8:00', teacher: '신요한' },
@@ -57,7 +58,7 @@ const IMPERIAL_DATA = {
         { grade: '고3', subject: '수학', title: '미적분', day: '토', time: '2:00 - 6:00', teacher: '오수영' },
         { grade: '고3', subject: '영어', title: '영일고3 영어', day: '화/목', time: '7:30 - 10:00', teacher: '신요한' },
         { grade: '고3', subject: '과학', title: '물리학 수능 대비반', day: '일', time: '3:00 - 4:00', teacher: '박성채' },
-        { grade: '고3', subject: '과학', title: '생명과학Ⅰ 수능 대비반', day: '일', time: '4:00 - 7:00', teacher: '김찬혁' }
+        { grade: '고3', subject: '과학', title: '생명과학Ⅰ 수능 대비반', day: '토', time: '9:00 - 12:00', teacher: '김찬혁' }
     ],
     // [성적 향상 사례]
     successStories: {
