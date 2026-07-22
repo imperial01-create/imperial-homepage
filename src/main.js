@@ -23,7 +23,7 @@ const IMPERIAL_DATA = {
     // [시간표 목록]
     classes: [
         { grade: '중1', subject: '수학', title: '중1 수학 A반', day: '화/목 | 토', time: '4:30 - 7:00 | 10:00 - 12:00', teacher: '김기중' },
-        { grade: '중1', subject: '수학', title: '중1 수학 B반', day: '화/목', time: '4:00 - 6:00', teacher: '김기중' },
+        { grade: '중1', subject: '수학', title: '중1 수학 B반', day: '월/수/금', time: '4:00 - 6:00', teacher: '김기중' },
         { grade: '중1', subject: '영어', title: '중1 영어', day: '월/수/금', time: '6:00 - 8:00', teacher: '최성민' },
         { grade: '중2', subject: '수학', title: '중2 수학', day: '월/수/금', time: '6:00 - 8:00', teacher: '김기중' },
         { grade: '중2', subject: '수학', title: '중2 수학 특강', day: '화/목 | 토', time: '10:00 - 12:00 | 2:00 - 4:00', teacher: '김기중' },
@@ -68,7 +68,8 @@ const IMPERIAL_DATA = {
         ],
         english: [
             "2024 최OO 내신 3등급 <span class='text-imperial-blue font-bold'>→ 2024 전교 1등</span>",
-            "2023 박OO 내신 2등급 <span class='text-imperial-blue font-bold'>→ 2025 전교 1등</span>"
+            "2023 박OO 내신 2등급 <span class='text-imperial-blue font-bold'>→ 2025 전교 1등</span>",
+            "2023 강OO 내신 4등급 <span class='text-imperial-blue font-bold'>→ 2026 전교 1등</span>"
         ],
         korean: [
             "2023 문OO 내신 3등급 <span class='text-imperial-blue font-bold'>→ 2024 전교 1등</span>",
@@ -78,7 +79,8 @@ const IMPERIAL_DATA = {
         ],
         science: [
             "2023 노OO 내신 4등급 <span class='text-imperial-blue font-bold'>→ 2024 전교 1등</span>",
-            "2025 이OO 내신 1등급 <span class='text-imperial-blue font-bold'>→ 2025 전교 1등</span>"
+            "2025 이OO 내신 1등급 <span class='text-imperial-blue font-bold'>→ 2025 전교 1등</span>",
+            "2025 전OO 내신 2등급 <span class='text-imperial-blue font-bold'>→ 2026 전교 1등</span>"
         ]
     },
     // [교습비 안내]
