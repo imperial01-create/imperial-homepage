@@ -83,6 +83,135 @@ const IMPERIAL_DATA = {
             "2025 전OO 내신 2등급 <span class='text-imperial-blue font-bold'>→ 2026 전교 1등</span>"
         ]
     },
+    // [자주 묻는 질문]
+    faq: [
+        {
+            category: "입학 관련",
+            icon: "fa-door-open",
+            items: [
+                {
+                    q: "학기 중 수시 입학도 가능한가요?",
+                    a: "네, 가능합니다. 정규 개강일 외에도 상담 결과에 따라 적합한 반이 있을 경우 수시 편입이 가능합니다."
+                },
+                {
+                    q: "레벨테스트는 어떻게 진행되나요?",
+                    a: "레벨테스트는 상담 담당 선생님과의 상담에서 학생의 정밀 진단이 필요하다고 판단되는 경우에만 진행됩니다. 단순한 레벨테스트보다 상담 전문 선생님과의 상담이 학생의 현재 상태와 실력을 평가하는 데 더욱 적합하기 때문입니다."
+                },
+                {
+                    q: "반 편성 기준은 무엇인가요?",
+                    a: "반 편성 기준은 해당 과목에 대한 학생의 이해 속도입니다. 성적보다도 이해 속도에 따라 학생에게 도움이 되는 강의가 달라지기 때문이며, 이에 대한 판단은 상담 선생님이 직접 진행합니다."
+                },
+                {
+                    q: "정원이 마감된 반도 등록할 수 있나요?",
+                    a: "정원이 마감된 반은 대기 순번을 안내해 드리며, 자리가 생기는 대로 순번에 따라 차례대로 연락드립니다."
+                },
+                {
+                    q: "주로 어느 학교 학생들이 다니나요?",
+                    a: "고등학교는 영일고, 광영여고, 대일고, 경복여고, 대일관광고, 덕원여고, 목동고, 중학교는 등촌중, 백석중, 양동중, 신정여중 학생들이 주를 이루며, 이 외에도 다양한 학교의 학생들이 함께 수업을 듣고 있습니다."
+                }
+            ]
+        },
+        {
+            category: "수업 및 커리큘럼 관련",
+            icon: "fa-book-open",
+            items: [
+                {
+                    q: "내신 대비와 수능 대비의 비율은 어떻게 되나요?",
+                    a: "평소에는 수능 기초 및 심화 위주로 진행하며, 시험 기간 4주 전부터 학교별 내신 집중 대비 체제로 전환합니다."
+                },
+                {
+                    q: "결석 시 보강은 어떻게 진행되나요?",
+                    a: "개인적인 사정에 의한 결석 시 강사 보충은 불가하나, 당일 수업 녹화본을 제공해 드리며 주말 클리닉 시간을 활용하여 담당 조교의 1:1 밀착 보충 학습을 진행합니다."
+                },
+                {
+                    q: "한 반 정원은 몇 명인가요?",
+                    a: "정원은 반마다 다릅니다. 담당 강사의 강의 스타일과 학원의 판단에 따라 반별로 최적의 인원을 결정하여 운영하고 있습니다."
+                },
+                {
+                    q: "선행 학습은 어느 정도까지 진행되나요?",
+                    a: "선행 학습과 관련된 사항은 관련 법령(공교육 정상화 촉진 및 선행교육 규제에 관한 특별법)에 따라 유선으로만 안내해 드리고 있습니다. 02-2644-1178로 문의해 주시기 바랍니다."
+                },
+                {
+                    q: "과제량은 어느 정도이며, 미이행 시 어떻게 관리되나요?",
+                    a: "과제는 학생의 상태와 수준 등을 종합적으로 고려하여 학생의 발전에 필요한 만큼 부여됩니다. 여러 과목을 수강하는 경우 매주 담당 선생님들이 학생의 상태를 공유하여 과제량을 일시적으로 조정하기도 합니다. 과제 미이행 시에는 조교와의 보충을 기본으로 진행합니다."
+                },
+                {
+                    q: "교재는 무엇을 사용하며, 교재비는 수강료에 포함되나요?",
+                    a: "교재는 강사별, 강의별로 차이가 있으며, 교재비는 수강료에 포함되지 않고 별도로 산정됩니다."
+                },
+                {
+                    q: "시험 기간에는 시간표가 어떻게 운영되나요?",
+                    a: "시험 전날 또는 이틀 전에 직전 보충 수업을 진행합니다. 직전 보충 수업은 시험 기간 중 진행되지 않는 수업 시간을 앞당겨 진행하는 것으로 처리됩니다."
+                },
+                {
+                    q: "특강은 어떻게 신청하나요?",
+                    a: "학원에서 발송해 드리는 가정통신문에 회신하시거나, 전화 또는 문자로 신청하실 수 있습니다. 특강 종류별로 교습비가 상이하므로 자세한 비용은 학원으로 문의해 주시기 바랍니다."
+                }
+            ]
+        },
+        {
+            category: "학생 관리 및 소통 관련",
+            icon: "fa-comments",
+            items: [
+                {
+                    q: "스터디존은 자유롭게 이용할 수 있나요?",
+                    a: "재원생 누구나 학원 개방 시간 내에 자유롭게 이용할 수 있으며, 관리 조교가 상주하여 엄격한 면학 분위기를 유지합니다. 개방 시간은 학기 중에는 평일 14:00 - 22:00, 주말 10:00 - 22:00이며, 방학 중에는 매일 10:00 - 22:00입니다."
+                },
+                {
+                    q: "학부모와는 어떻게 소통하나요?",
+                    a: "매월 학생별 학습 상황 리포트를 정기적으로 발송해 드리며, 학부모 전용 카카오톡 채널을 통해 상시 상담을 지원합니다."
+                },
+                {
+                    q: "조교 클리닉은 어떻게 신청하나요?",
+                    a: "홈페이지 우측 상단의 로그인 버튼을 통해 임페리얼 시스템에 접속하시면, 클리닉 센터에서 무료로 신청하실 수 있습니다. 평일에는 누구나 방문하여 질문할 수 있는 오픈 클리닉으로, 주말에는 1:1 심층 관리가 이루어지는 개인 클리닉으로 운영됩니다."
+                },
+                {
+                    q: "등·하원 알림을 받을 수 있나요?",
+                    a: "목동임페리얼학원 카카오톡 채널의 알림톡을 통해 등·하원 알림을 보내드립니다."
+                },
+                {
+                    q: "수업 중 학생 휴대폰은 어떻게 관리되나요?",
+                    a: "원내에서는 휴대폰 사용이 불가하며, 등원 시 휴대폰을 제출해야 합니다. 학생이 학원에 있는 동안 연락이 필요하신 경우 학원(02-2644-1178)으로 연락 주시기 바랍니다."
+                },
+                {
+                    q: "'임페리얼 시스템'은 무엇인가요?",
+                    a: "임페리얼 시스템은 목동임페리얼학원의 재원생, 학부모, 강사, 조교를 위한 자체 시스템으로, 학생의 학습을 돕기 위해 지속적으로 개발하고 있습니다."
+                }
+            ]
+        },
+        {
+            category: "수강료 및 환불 안내",
+            icon: "fa-credit-card",
+            items: [
+                {
+                    q: "수강료 납부일과 결제 방법은 어떻게 되나요?",
+                    a: "수강료 납부일은 매월 1일이며, 결제톡 발송, 현장 카드 결제, 유선상 카드 결제 중 편하신 방법을 선택하실 수 있습니다."
+                },
+                {
+                    q: "중도 퇴원 시 환불 규정은 어떻게 되나요?",
+                    a: "「학원의 설립·운영 및 과외교습에 관한 법률 시행령」 제18조 제3항에 따라 적법하게 처리해 드립니다. 교습 시작 전에는 이미 납부한 교습비 등의 전액을, 교습 시작 후 총 교습시간의 1/3 경과 전까지는 2/3에 해당하는 금액을, 1/3 경과 후부터 1/2 경과 전까지는 1/2에 해당하는 금액을 환불해 드리며, 총 교습시간의 1/2이 경과한 후에는 환불 금액이 없습니다."
+                },
+                {
+                    q: "형제자매 할인이나 장학 제도가 있나요?",
+                    a: "형제자매 할인은 운영하지 않으며, 영어와 수학을 동시에 수강하시는 경우 영어 수강료를 20,000원 할인해 드립니다. 그 외 과목은 단과 강의로 운영되어 추가 할인은 없습니다."
+                }
+            ]
+        },
+        {
+            category: "학원 이용 안내",
+            icon: "fa-building",
+            items: [
+                {
+                    q: "셔틀버스를 운행하나요?",
+                    a: "별도의 셔틀버스는 운행하지 않습니다."
+                },
+                {
+                    q: "주차가 가능한가요?",
+                    a: "학원 건물 지하에 주차장이 마련되어 있어 이용 가능합니다."
+                }
+            ]
+        }
+    ],
     // [교습비 안내]
     tuition: {
         summary: [
@@ -166,8 +295,9 @@ document.addEventListener('DOMContentLoaded', () => {
     filterTeachers('all');
     initTeacherFilter(); 
     renderTimetable();
-    renderTuition(); 
-    initCounters(); 
+    renderTuition();
+    renderFAQ();
+    initCounters();
 });
 
 function renderTuition() {
@@ -213,6 +343,71 @@ function openLegalModal() {
 function closeLegalModal() {
     document.getElementById('legal-tuition-modal').classList.add('hidden');
 }
+
+function renderFAQ() {
+    const container = document.getElementById('faq-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+    let itemIndex = 0;
+
+    DB.faq.forEach(group => {
+        const items = group.items.map(item => {
+            const answerId = `faq-answer-${itemIndex++}`;
+            return `
+                <div class="border-b border-gray-100 last:border-b-0">
+                    <button type="button" onclick="toggleFAQ(this, '${answerId}')" class="w-full flex items-start gap-3 md:gap-4 text-left py-5 group">
+                        <span class="text-imperial-blue font-black text-lg leading-7 flex-shrink-0">Q</span>
+                        <span class="flex-1 font-bold text-gray-900 leading-7 group-hover:text-imperial-blue transition-colors keep-all">${item.q}</span>
+                        <i class="fas fa-chevron-down text-gray-400 text-sm mt-2 flex-shrink-0 transition-transform duration-300"></i>
+                    </button>
+                    <div id="${answerId}" class="faq-answer">
+                        <div class="flex items-start gap-3 md:gap-4 pb-6 md:pr-8">
+                            <span class="text-gray-300 font-black text-lg leading-7 flex-shrink-0">A</span>
+                            <p class="flex-1 text-gray-600 text-sm md:text-base leading-relaxed keep-all">${item.a}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        const block = `
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="flex items-center gap-3 px-6 md:px-8 py-4 bg-gray-50 border-b border-gray-100">
+                    <div class="w-9 h-9 rounded-lg bg-imperial-black text-white flex items-center justify-center text-sm flex-shrink-0">
+                        <i class="fas ${group.icon}"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900">${group.category}</h3>
+                </div>
+                <div class="px-6 md:px-8">${items}</div>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', block);
+    });
+}
+
+function toggleFAQ(btn, answerId) {
+    const answer = document.getElementById(answerId);
+    const icon = btn.querySelector('i');
+    if (!answer) return;
+
+    if (answer.classList.contains('open')) {
+        answer.classList.remove('open');
+        answer.style.maxHeight = null;
+        icon.classList.remove('rotate-180', 'text-imperial-blue');
+    } else {
+        answer.classList.add('open');
+        answer.style.maxHeight = `${answer.scrollHeight}px`;
+        icon.classList.add('rotate-180', 'text-imperial-blue');
+    }
+}
+
+// 화면 폭이 바뀌면 열려 있는 답변의 높이를 다시 계산합니다.
+window.addEventListener('resize', () => {
+    document.querySelectorAll('.faq-answer.open').forEach(answer => {
+        answer.style.maxHeight = `${answer.scrollHeight}px`;
+    });
+});
 
 function renderSuccessStories() {
     for (const [subject, stories] of Object.entries(DB.successStories)) {

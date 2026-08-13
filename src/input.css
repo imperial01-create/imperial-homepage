@@ -71,8 +71,15 @@
         animation: spin 1s linear infinite;
     }
     
-    @keyframes spin { 
-        0% { transform: rotate(0deg); } 
-        100% { transform: rotate(360deg); } 
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* 7. FAQ 아코디언 */
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
     }
 }
