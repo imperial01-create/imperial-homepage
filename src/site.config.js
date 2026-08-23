@@ -65,7 +65,7 @@ const SITE = {
     // (파일이 없으면 자동으로 건너뛰므로 깨진 이미지 링크가 나가지 않습니다.)
     // 크기는 빌드 시 파일에서 직접 읽으므로 따로 적을 필요가 없습니다.
     logo: '/assets/logo.jpg',
-    ogImage: '/assets/og.jpg',            // 없으면 logo 를 og:image 로 사용
+    ogImage: '/assets/og.png',            // 없으면 logo 를 og:image 로 사용
     favicon: '/assets/favicon.ico',
     appleTouchIcon: '/assets/apple-touch-icon.png',
 
