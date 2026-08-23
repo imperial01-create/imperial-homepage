@@ -33,9 +33,8 @@ const SITE = {
     addressFull: '서울특별시 양천구 등촌로 192, 4층',
     jibunAddress: '서울특별시 양천구 목동 621-13',
 
-    // 네이버 지도에서 확인한 정확한 좌표를 넣으면 JSON-LD geo / geo 메타태그가 함께 생성됩니다.
-    // 값을 모르면 null로 두세요. (추측값을 넣는 것보다 비워두는 편이 안전합니다.)
-    geo: null, // 예: { latitude: 37.54321, longitude: 126.86543 }
+    // 도로명주소 '서울특별시 양천구 등촌로 192' 지오코딩 결과 (우편번호 07950, 목3동)
+    geo: { latitude: 37.546802, longitude: 126.863181 },
 
     // ── 운영 시간 ───────────────────────────────────────────────────────────
     openingHours: [
@@ -43,6 +42,13 @@ const SITE = {
         { days: ['Saturday', 'Sunday'], opens: '10:00', closes: '22:00' }
     ],
     openingHoursText: '평일 14:00 - 22:00 / 주말 10:00 - 22:00',
+
+    // ── 교통 ────────────────────────────────────────────────────────────────
+    subwayLine: '서울 지하철 9호선',
+    subwayStation: '등촌역',
+    subwayExit: '6번 출구',
+    subwayDistanceM: 445,
+    subwayWalkMin: 6,
 
     // ── 외부 채널 (엔티티 결합용 sameAs) ────────────────────────────────────
     naverMap: 'https://map.naver.com/p/entry/place/1005957201',
@@ -54,12 +60,14 @@ const SITE = {
         // 구글 비즈니스 프로필을 만들면 그 URL을 여기에 추가하세요.
     ],
 
-    // ── 이미지 (자체 도메인에 올린 파일만 사용) ─────────────────────────────
-    // 파일을 assets/ 에 올린 뒤 아래 값을 채우면 og:image / JSON-LD logo 가 생성됩니다.
-    logo: null,     // 예: { path: '/assets/logo.png', width: 512, height: 512 }
-    ogImage: null,  // 예: { path: '/assets/og.jpg', width: 1200, height: 630 }
-    favicon: null,  // 예: '/assets/favicon.ico'
-    appleTouchIcon: null, // 예: '/assets/apple-touch-icon.png'
+    // ── 이미지 ──────────────────────────────────────────────────────────────
+    // 아래 경로에 파일이 "실제로 존재할 때만" og:image / JSON-LD logo 가 생성됩니다.
+    // (파일이 없으면 자동으로 건너뛰므로 깨진 이미지 링크가 나가지 않습니다.)
+    // 크기는 빌드 시 파일에서 직접 읽으므로 따로 적을 필요가 없습니다.
+    logo: '/assets/logo.jpg',
+    ogImage: '/assets/og.jpg',            // 없으면 logo 를 og:image 로 사용
+    favicon: '/assets/favicon.ico',
+    appleTouchIcon: '/assets/apple-touch-icon.png',
 
     // ── 검색엔진 소유확인 토큰 (등록 후 값만 채우면 메타태그가 생성됩니다) ──
     naverSiteVerification: null,

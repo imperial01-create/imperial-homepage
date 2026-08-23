@@ -16,7 +16,7 @@
  */
 
 import { createRequire } from 'node:module';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -34,6 +34,36 @@ const abs = (path) => BASE + path;
 
 const stripTags = (s) => String(s).replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 const xmlEscape = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/** PNG/JPEG 파일에서 실제 픽셀 크기를 읽습니다. (og:image:width 등에 정확한 값을 넣기 위함) */
+function imageSize(file) {
+    const b = readFileSync(file);
+    if (b[0] === 0x89 && b[1] === 0x50) {                 // PNG
+        return { width: b.readUInt32BE(16), height: b.readUInt32BE(20) };
+    }
+    if (b[0] === 0xff && b[1] === 0xd8) {                 // JPEG
+        let i = 2;
+        while (i < b.length - 9) {
+            if (b[i] !== 0xff) { i++; continue; }
+            const marker = b[i + 1];
+            if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) {
+                return { height: b.readUInt16BE(i + 5), width: b.readUInt16BE(i + 7) };
+            }
+            i += 2 + b.readUInt16BE(i + 2);
+        }
+    }
+    return null;
+}
+
+/** 설정된 이미지 경로가 실제로 존재할 때만 { url, width, height } 를 돌려줍니다. */
+function asset(path) {
+    if (!path) return null;
+    const file = join(ROOT, path.replace(/^\//, ''));
+    if (!existsSync(file)) return null;
+    let size = null;
+    try { size = imageSize(file); } catch (e) { /* 크기를 못 읽어도 링크는 유효 */ }
+    return { url: abs(path), ...(size || {}) };
+}
 
 /** 데이터 그룹별 최종 수정일 중 가장 최근 날짜 (sitemap lastmod / dateModified 용) */
 function latestUpdate() {
@@ -141,8 +171,10 @@ function buildJsonLd() {
     const founder = instructors.find(t => t.name === SITE.founderName);
     if (founder) academy.founder = { '@id': id('person-' + founder.id) };
     if (SITE.geo) academy.geo = { '@type': 'GeoCoordinates', latitude: SITE.geo.latitude, longitude: SITE.geo.longitude };
-    if (SITE.logo) academy.logo = { '@type': 'ImageObject', url: abs(SITE.logo.path), width: SITE.logo.width, height: SITE.logo.height };
-    if (SITE.ogImage) academy.image = abs(SITE.ogImage.path);
+    const logo = asset(SITE.logo);
+    const ogImg = asset(SITE.ogImage) || logo;
+    if (logo) academy.logo = { '@type': 'ImageObject', url: logo.url, ...(logo.width ? { width: logo.width, height: logo.height } : {}) };
+    if (ogImg) academy.image = ogImg.url;
 
     graph.push(academy);
 
@@ -228,17 +260,20 @@ function buildHead() {
     L.push(`<meta property="og:title" content="${SITE.ogTitle}">`);
     L.push(`<meta property="og:description" content="${SITE.ogDescription}">`);
     L.push(`<meta property="og:url" content="${BASE}/">`);
-    if (SITE.ogImage) {
-        L.push(`<meta property="og:image" content="${abs(SITE.ogImage.path)}">`);
-        L.push(`<meta property="og:image:width" content="${SITE.ogImage.width}">`);
-        L.push(`<meta property="og:image:height" content="${SITE.ogImage.height}">`);
+    const ogImg = asset(SITE.ogImage) || asset(SITE.logo);
+    if (ogImg) {
+        L.push(`<meta property="og:image" content="${ogImg.url}">`);
+        if (ogImg.width) {
+            L.push(`<meta property="og:image:width" content="${ogImg.width}">`);
+            L.push(`<meta property="og:image:height" content="${ogImg.height}">`);
+        }
         L.push(`<meta property="og:image:alt" content="${SITE.name} - ${SITE.addressFull}">`);
     }
     L.push('');
-    L.push(`<meta name="twitter:card" content="${SITE.ogImage ? 'summary_large_image' : 'summary'}">`);
+    L.push(`<meta name="twitter:card" content="${ogImg ? 'summary_large_image' : 'summary'}">`);
     L.push(`<meta name="twitter:title" content="${SITE.ogTitle}">`);
     L.push(`<meta name="twitter:description" content="${SITE.ogDescription}">`);
-    if (SITE.ogImage) L.push(`<meta name="twitter:image" content="${abs(SITE.ogImage.path)}">`);
+    if (ogImg) L.push(`<meta name="twitter:image" content="${ogImg.url}">`);
     L.push('');
     L.push(`<meta name="geo.region" content="KR-11">`);
     L.push(`<meta name="geo.placename" content="${SITE.address.addressRegion} ${SITE.address.addressLocality}">`);
@@ -246,8 +281,8 @@ function buildHead() {
         L.push(`<meta name="geo.position" content="${SITE.geo.latitude};${SITE.geo.longitude}">`);
         L.push(`<meta name="ICBM" content="${SITE.geo.latitude}, ${SITE.geo.longitude}">`);
     }
-    if (SITE.favicon) L.push(`<link rel="icon" href="${SITE.favicon}" sizes="any">`);
-    if (SITE.appleTouchIcon) L.push(`<link rel="apple-touch-icon" href="${SITE.appleTouchIcon}">`);
+    if (asset(SITE.favicon)) L.push(`<link rel="icon" href="${SITE.favicon}" sizes="any">`);
+    if (asset(SITE.appleTouchIcon)) L.push(`<link rel="apple-touch-icon" href="${SITE.appleTouchIcon}">`);
     if (SITE.naverSiteVerification) L.push(`<meta name="naver-site-verification" content="${SITE.naverSiteVerification}">`);
     if (SITE.googleSiteVerification) L.push(`<meta name="google-site-verification" content="${SITE.googleSiteVerification}">`);
     L.push('');
@@ -320,7 +355,7 @@ function llmsTxt() {
 
     return `# ${SITE.name}
 
-> ${SITE.addressFull}에 위치한 중1~고3 대상 수학·영어·국어·과학 학원입니다. ${schools} 재학생의 내신 및 수능 대비를 전문으로 합니다. 전화 ${SITE.telephone}. 운영시간 ${SITE.openingHoursText}.
+> ${SITE.addressFull}에 위치한 중1~고3 대상 수학·영어·국어·과학 학원입니다. ${schools} 재학생의 내신 및 수능 대비를 전문으로 합니다. ${SITE.subwayLine} ${SITE.subwayStation} ${SITE.subwayExit}에서 ${SITE.subwayDistanceM}m, 도보 약 ${SITE.subwayWalkMin}분 거리입니다. 전화 ${SITE.telephone}. 운영시간 ${SITE.openingHoursText}.
 
 법인명 ${SITE.legalName} · 대표 ${SITE.founderName} · 사업자등록번호 ${SITE.taxID} · 학원 신고번호 ${SITE.academyLicense}
 
@@ -383,4 +418,6 @@ const faqCount = DB.faq.reduce((n, g) => n + g.items.length, 0);
 console.log('[prerender] index.html 갱신 완료');
 console.log(`            FAQ ${faqCount}개 · 강사 ${DB.teachers.length}명 · 강좌 ${DB.classes.length}개 · 교습비 게시표 ${DB.tuition.legalList.length}행`);
 console.log(`            JSON-LD 노드 ${JSON.parse(buildJsonLd())['@graph'].length}개 · 기준 도메인 ${BASE}`);
+const _logo = asset(SITE.logo), _og = asset(SITE.ogImage) || _logo;
+console.log(`            로고 ${_logo ? _logo.url + ' (' + _logo.width + 'x' + _logo.height + ')' : '없음 — assets/ 에 파일을 넣으면 자동 반영'} · og:image ${_og ? 'OK' : '없음'}`);
 console.log('[prerender] robots.txt / sitemap.xml / rss.xml / llms.txt 생성 완료');
