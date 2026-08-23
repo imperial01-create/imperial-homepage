@@ -3,16 +3,24 @@ const DEFAULT_PROFILE_IMG = "https://upload.wikimedia.org/wikipedia/commons/8/89
 
 // 2. 홈페이지 데이터 모음
 const IMPERIAL_DATA = {
+    // 아래 데이터를 수정할 때 해당 항목의 날짜도 함께 고쳐 주세요.
+    // sitemap.xml 의 lastmod 와 JSON-LD 의 dateModified 가 이 값을 사용합니다.
+    lastUpdated: {
+        teachers: '2026-08-24',
+        classes: '2026-08-24',
+        tuition: '2026-08-24',
+        faq: '2026-08-24'
+    },
     // ... (데이터는 기존과 동일하게 유지됩니다. 지면 관계상 생략하지 않고 핵심 로직에 집중합니다.) ...
     // [강사 및 TA 목록]
     teachers: [
-        { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "31년", students: "4000+", rate: "95%", impact: "압도적인 커리어의 완벽한 결과", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
-        { id: 2, name: "장인자", subject: "수학", role: "수학과 전임 강사", grade: "중2 - 고1", info: "고려대학원 영재교육전공", career: "20년", students: "2000+", rate: "97%", impact: "20년 경력의 압도적 관리 노하우", imgs: ["https://i.postimg.cc/MZ9jWyWY/2-1.jpg"] },
+        { id: 1, name: "김기중", subject: "수학", role: "대표 원장 / 수학과 전임", grade: "중1 - 고1", info: "고려대학원 영재교육전공 수석", career: "31년", students: "4000+", rate: "95%", impact: "압도적인 커리어의 완벽한 결과", alumniOf: "고려대학교 대학원", imgs: ["https://i.postimg.cc/cCkKXN9t/1-1.jpg"] },
+        { id: 2, name: "장인자", subject: "수학", role: "수학과 전임 강사", grade: "중2 - 고1", info: "고려대학원 영재교육전공", career: "20년", students: "2000+", rate: "97%", impact: "20년 경력의 압도적 관리 노하우", alumniOf: "고려대학교 대학원", imgs: ["https://i.postimg.cc/MZ9jWyWY/2-1.jpg"] },
         { id: 3, name: "김준혁", subject: "수학", role: "부원장 / 수학과 대표", grade: "고2 - 고3", info: "전국 학력평가 전국 1등", career: "11년", students: "1400+", rate: "98%", impact: "전국 모의고사 만점 / 심화 수학 전문가", imgs: ["https://i.postimg.cc/MZ9jWyWD/3-1.jpg"] },
-        { id: 7, name: "신요한", subject: "영어", role: "영어과 대표", grade: "고1 - 고3", info: "성균관대 법학과 졸업", career: "17년", students: "500+", rate: "97%", impact: "성균관대 법대 / 수능 영어 1등급", imgs: ["https://i.postimg.cc/NGdrg1gN/7-1.jpg"] },
+        { id: 7, name: "신요한", subject: "영어", role: "영어과 대표", grade: "고1 - 고3", info: "성균관대 법학과 졸업", career: "17년", students: "500+", rate: "97%", impact: "성균관대 법대 / 수능 영어 1등급", alumniOf: "성균관대학교", imgs: ["https://i.postimg.cc/NGdrg1gN/7-1.jpg"] },
         { id: 8, name: "최성민", subject: "영어", role: "영어과 전임 강사", grade: "중1 - 중3", info: "대치동 출신 강사", career: "10년", students: "200+", rate: "90%", impact: "대치동 출신 / 중등 영어 완성", imgs: ["https://i.postimg.cc/gcg6YvYS/8-1.jpg"] },
         { id: 9, name: "정석홍", subject: "국어", role: "국어과 대표", grade: "고1 - 고3", info: "임페리얼 국어 전임", career: "5년", students: "100+", rate: "91%", impact: "수능 국어 문해력/비문학 전문가", imgs: ["https://i.postimg.cc/sfTZVpV0/9-1.jpg"] },
-        { id: 10, name: "박성채", subject: "과학", role: "과학과 대표", grade: "고1 - 고3", info: "고려대 기계공학과", career: "5년", students: "90+", rate: "93%", impact: "서울대 수의학과 배출", imgs: ["https://i.postimg.cc/ryft8S83/10-1.jpg"] },
+        { id: 10, name: "박성채", subject: "과학", role: "과학과 대표", grade: "고1 - 고3", info: "고려대 기계공학과", career: "5년", students: "90+", rate: "93%", impact: "서울대 수의학과 배출", alumniOf: "고려대학교", imgs: ["https://i.postimg.cc/ryft8S83/10-1.jpg"] },
         { id: 11, name: "김찬혁", subject: "과학", role: "과학과 강사", grade: "고1 - 고2", info: "6등급에서 전교 1등 신화", career: "6년", students: "100+", rate: "95%", impact: "영일고 전교 1등 3명 배출", imgs: [] },
         
         // TA
@@ -91,7 +99,7 @@ const IMPERIAL_DATA = {
             items: [
                 {
                     q: "학기 중 수시 입학도 가능한가요?",
-                    a: "네, 가능합니다. 정규 개강일 외에도 상담 결과에 따라 적합한 반이 있을 경우 수시 편입이 가능합니다."
+                    a: "목동임페리얼학원은 학기 중 수시 편입이 가능합니다. 정규 개강일 외에도 상담 결과에 따라 학생에게 적합한 반이 있을 경우 언제든 편입하실 수 있습니다."
                 },
                 {
                     q: "레벨테스트는 어떻게 진행되나요?",
@@ -121,7 +129,7 @@ const IMPERIAL_DATA = {
                 },
                 {
                     q: "한 반 정원은 몇 명인가요?",
-                    a: "정원은 반마다 다릅니다. 담당 강사의 강의 스타일과 학원의 판단에 따라 반별로 최적의 인원을 결정하여 운영하고 있습니다."
+                    a: "목동임페리얼학원의 반 정원은 강좌마다 다릅니다. 담당 강사의 강의 스타일과 학원의 판단에 따라 반별 최적 인원을 정하며, 학원 교습비 등 게시표에 신고된 교습과정별 정원은 18명입니다."
                 },
                 {
                     q: "선행 학습은 어느 정도까지 진행되나요?",
@@ -180,8 +188,12 @@ const IMPERIAL_DATA = {
             icon: "fa-credit-card",
             items: [
                 {
+                    q: "목동임페리얼학원 수강료는 얼마인가요?",
+                    a: "목동임페리얼학원의 월 교습비는 중등 수학 300,000원, 중등 영어 300,000원, 고등 수학 400,000원, 고등 영어 400,000원, 고등 국어 220,000원, 고등 과학 170,000원입니다. 특강료는 별도로 산정되며, 교재비는 교습비에 포함되지 않습니다. 교습과정별 전체 금액은 교습비 안내의 '학원 교습비 등 게시표'에서 확인하실 수 있습니다."
+                },
+                {
                     q: "수강료 납부일과 결제 방법은 어떻게 되나요?",
-                    a: "수강료 납부일은 매월 1일이며, 결제톡 발송, 현장 카드 결제, 유선상 카드 결제 중 편하신 방법을 선택하실 수 있습니다."
+                    a: "목동임페리얼학원의 수강료 납부일은 매월 1일입니다. 결제톡 발송, 학원 현장 카드 결제, 유선상 카드 결제 중 편하신 방법을 선택하실 수 있습니다."
                 },
                 {
                     q: "중도 퇴원 시 환불 규정은 어떻게 되나요?",
@@ -199,11 +211,11 @@ const IMPERIAL_DATA = {
             items: [
                 {
                     q: "셔틀버스를 운행하나요?",
-                    a: "별도의 셔틀버스는 운행하지 않습니다."
+                    a: "목동임페리얼학원은 셔틀버스를 운행하지 않습니다. 학원은 서울 지하철 9호선 등촌역 인근(서울특별시 양천구 등촌로 192, 4층)에 있어 도보 또는 대중교통으로 등원합니다."
                 },
                 {
                     q: "주차가 가능한가요?",
-                    a: "학원 건물 지하에 주차장이 마련되어 있어 이용 가능합니다."
+                    a: "목동임페리얼학원이 있는 건물 지하에 주차장이 있어 상담이나 방문 시 이용하실 수 있습니다."
                 }
             ]
         }
@@ -286,42 +298,56 @@ let currentImageIndex = 0;
 // Link config to logic
 const DB = IMPERIAL_DATA; 
 
-document.addEventListener('DOMContentLoaded', () => {
-    renderSuccessStories(); 
-    filterTeachers('all');
-    initTeacherFilter(); 
-    renderTimetable();
-    renderTuition();
-    renderFAQ();
-    initCounters();
-});
+const IS_BROWSER = typeof window !== 'undefined' && typeof document !== 'undefined';
 
-function renderTuition() {
-    const container = document.getElementById('tuition-container');
-    const policyText = document.getElementById('tuition-policy');
-    
-    if(policyText) policyText.innerHTML = DB.tuition.policy;
+if (IS_BROWSER) {
+    document.addEventListener('DOMContentLoaded', () => {
+        // 빌드 타임(scripts/prerender.mjs)에 이미 동일한 HTML을 심어 두었으면 첫 화면은
+        // 다시 그리지 않습니다. 사용자가 필터를 조작하면 아래 함수들이 정상적으로 재렌더링합니다.
+        const prerendered = document.documentElement.hasAttribute('data-prerendered');
 
-    if(container) {
-        container.innerHTML = '';
-        DB.tuition.summary.forEach(item => {
-            const card = `
+        if (!prerendered) {
+            renderSuccessStories();
+            filterTeachers('all');
+            renderTimetable();
+            renderTuition();
+            renderFAQ();
+        }
+
+        initTeacherFilter();
+        initCounters();
+    });
+
+    // 화면 폭이 바뀌면 열려 있는 FAQ 답변의 높이를 다시 계산합니다.
+    window.addEventListener('resize', () => {
+        document.querySelectorAll('.faq-answer.open').forEach(answer => {
+            answer.style.maxHeight = `${answer.scrollHeight}px`;
+        });
+    });
+}
+
+// 3. HTML 빌더 (DOM에 의존하지 않는 순수 함수)
+//    브라우저 렌더링과 scripts/prerender.js(빌드 타임 정적 삽입)가 이 함수들을 함께
+//    사용합니다. 덕분에 자바스크립트를 실행하지 않는 검색·AI 크롤러도 사용자와 완전히
+//    동일한 내용을 읽게 됩니다. 데이터 원본은 언제나 위의 IMPERIAL_DATA 하나입니다.
+
+function buildSuccessStoriesHTML(stories) {
+    return stories
+        .map(story => `<li><i class="fas fa-check text-imperial-blue mr-2 text-xs" aria-hidden="true"></i>${story}</li>`)
+        .join('');
+}
+
+function buildTuitionCardsHTML(summary) {
+    return summary.map(item => `
                 <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:border-imperial-blue transition-colors flex justify-between items-center group">
                     <span class="font-bold text-gray-700 group-hover:text-imperial-blue text-lg">${item.title}</span>
                     <span class="font-black text-xl text-gray-900">${item.price}<span class="text-sm font-normal text-gray-500 ml-1">원</span></span>
                 </div>
-            `;
-            container.insertAdjacentHTML('beforeend', card);
-        });
-    }
+            `).join('');
 }
 
-function openLegalModal() {
-    const tbody = document.getElementById('legal-tuition-body');
-    tbody.innerHTML = '';
-    
-    DB.tuition.legalList.forEach(item => {
-        const row = `
+function buildLegalTuitionRowsHTML(list) {
+    return list.map(item => `
             <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.category}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-bold">${item.subject}</td>
@@ -329,37 +355,59 @@ function openLegalModal() {
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">${item.time}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right font-medium">${item.price}</td>
             </tr>
+        `).join('');
+}
+
+function buildTeacherCardsHTML(teachers) {
+    return teachers.map(t => {
+        const isTA = t.subject === 'TA';
+        const nameDisplay = isTA
+            ? `${t.name} <span class="text-sm font-normal text-gray-500">TA</span>`
+            : `${t.name} <span class="text-sm font-normal text-gray-500">선생님</span>`;
+
+        return `
+            <div class="group bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:-translate-y-1" onclick="openTeacherModal(${t.id})">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-200">
+                    <img src="${(t.imgs && t.imgs.length > 0) ? t.imgs[0] : DEFAULT_PROFILE_IMG}" alt="목동임페리얼학원 ${t.subject} ${isTA ? '조교' : '강사'} ${t.name} - ${t.role}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='${DEFAULT_PROFILE_IMG}'">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-xl font-black text-gray-900">${nameDisplay}</h3>
+                            <p class="text-imperial-blue font-bold text-xs uppercase tracking-wider mt-1">${t.role}</p>
+                        </div>
+                        <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">${t.subject}</span>
+                    </div>
+                    <div class="mt-3 mb-4">
+                        <p class="text-gray-800 text-sm font-bold border-l-4 border-imperial-blue pl-3 py-1 bg-gray-50 rounded-r leading-relaxed break-keep">
+                            "${t.impact}"
+                        </p>
+                    </div>
+                    <button class="w-full py-3 bg-white border border-gray-200 text-sm font-bold text-gray-600 hover:border-imperial-blue hover:text-imperial-blue transition-colors rounded-lg flex items-center justify-center gap-2">
+                        자세히 보기 <i class="fas fa-chevron-right text-xs opacity-50" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
         `;
-        tbody.insertAdjacentHTML('beforeend', row);
-    });
-    
-    document.getElementById('legal-tuition-modal').classList.remove('hidden');
+    }).join('');
 }
 
-function closeLegalModal() {
-    document.getElementById('legal-tuition-modal').classList.add('hidden');
-}
-
-function renderFAQ() {
-    const container = document.getElementById('faq-container');
-    if (!container) return;
-
-    container.innerHTML = '';
+function buildFAQHTML(groups) {
     let itemIndex = 0;
 
-    DB.faq.forEach(group => {
+    return groups.map(group => {
         const items = group.items.map(item => {
             const answerId = `faq-answer-${itemIndex++}`;
             return `
                 <div class="border-b border-gray-100 last:border-b-0">
-                    <button type="button" onclick="toggleFAQ(this, '${answerId}')" class="w-full flex items-start gap-3 md:gap-4 text-left py-5 group">
-                        <span class="text-imperial-blue font-black text-lg leading-7 flex-shrink-0">Q</span>
+                    <button type="button" onclick="toggleFAQ(this, '${answerId}')" aria-expanded="false" aria-controls="${answerId}" class="w-full flex items-start gap-3 md:gap-4 text-left py-5 group">
+                        <span class="text-imperial-blue font-black text-lg leading-7 flex-shrink-0" aria-hidden="true">Q</span>
                         <span class="flex-1 font-bold text-gray-900 leading-7 group-hover:text-imperial-blue transition-colors keep-all">${item.q}</span>
-                        <i class="fas fa-chevron-down text-gray-400 text-sm mt-2 flex-shrink-0 transition-transform duration-300"></i>
+                        <i class="fas fa-chevron-down text-gray-400 text-sm mt-2 flex-shrink-0 transition-transform duration-300" aria-hidden="true"></i>
                     </button>
                     <div id="${answerId}" class="faq-answer">
                         <div class="flex items-start gap-3 md:gap-4 pb-6 md:pr-8">
-                            <span class="text-gray-300 font-black text-lg leading-7 flex-shrink-0">A</span>
+                            <span class="text-gray-300 font-black text-lg leading-7 flex-shrink-0" aria-hidden="true">A</span>
                             <p class="flex-1 text-gray-600 text-sm md:text-base leading-relaxed keep-all">${item.a}</p>
                         </div>
                     </div>
@@ -367,10 +415,10 @@ function renderFAQ() {
             `;
         }).join('');
 
-        const block = `
+        return `
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
                 <div class="flex items-center gap-3 px-6 md:px-8 py-4 bg-gray-50 border-b border-gray-100">
-                    <div class="w-9 h-9 rounded-lg bg-imperial-black text-white flex items-center justify-center text-sm flex-shrink-0">
+                    <div class="w-9 h-9 rounded-lg bg-imperial-black text-white flex items-center justify-center text-sm flex-shrink-0" aria-hidden="true">
                         <i class="fas ${group.icon}"></i>
                     </div>
                     <h3 class="font-bold text-gray-900">${group.category}</h3>
@@ -378,8 +426,87 @@ function renderFAQ() {
                 <div class="px-6 md:px-8">${items}</div>
             </div>
         `;
-        container.insertAdjacentHTML('beforeend', block);
-    });
+    }).join('');
+}
+
+function buildTeacherOptionsHTML(teachers) {
+    const names = [...new Set(teachers.filter(t => t.subject !== 'TA').map(t => t.name))];
+    return names.map(name => `<option value="${name}">${name} T</option>`).join('');
+}
+
+function teacherBadgeHTML(name, teachers) {
+    const teacherObj = teachers.find(t => t.name === name);
+    return teacherObj
+        ? `<button onclick="openTeacherModal(${teacherObj.id})" class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-xs font-semibold hover:bg-imperial-blue hover:text-white transition-colors cursor-pointer">${name} T</button>`
+        : `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">${name} T</span>`;
+}
+
+function buildTimetableRowsHTML(classes, teachers) {
+    return classes.map(c => `
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-bold text-gray-900">${c.grade}</div>
+                        <div class="text-xs text-gray-500">${c.subject}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-bold text-imperial-blue">${c.title}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-900"><i class="far fa-calendar mr-1 text-gray-400" aria-hidden="true"></i> ${c.day}</div>
+                        <div class="text-xs text-gray-500"><i class="far fa-clock mr-1 text-gray-400" aria-hidden="true"></i> ${c.time}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        ${teacherBadgeHTML(c.teacher, teachers)}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                        <span class="px-2 py-1 text-xs font-bold text-green-600 bg-green-100 rounded">접수중</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-center">
+                        <button onclick="openConsultModal('${c.title}')" class="text-imperial-blue hover:text-black font-bold text-sm border border-imperial-blue hover:border-black px-3 py-1 rounded transition-colors">
+                            신청
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+}
+
+function buildTimetableCardsHTML(classes, teachers) {
+    return classes.map(c => `
+                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col gap-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded mb-1">${c.grade} | ${c.subject}</span>
+                                <h3 class="text-lg font-bold text-imperial-blue">${c.title}</h3>
+                            </div>
+                            ${teacherBadgeHTML(c.teacher, teachers)}
+                        </div>
+                        <div class="flex flex-col gap-1 text-sm text-gray-600">
+                            <div><i class="far fa-calendar w-5 text-center mr-1 text-gray-400" aria-hidden="true"></i> ${c.day}</div>
+                            <div><i class="far fa-clock w-5 text-center mr-1 text-gray-400" aria-hidden="true"></i> ${c.time}</div>
+                        </div>
+                        <div class="flex justify-between items-center mt-2 pt-3 border-t border-gray-50">
+                            <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">접수중</span>
+                            <button onclick="openConsultModal('${c.title}')" class="text-sm font-bold bg-imperial-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors">
+                                신청하기
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+}
+
+// 4. DOM 렌더러 (위 빌더가 만든 HTML을 실제 컨테이너에 주입)
+
+function renderTuition() {
+    const container = document.getElementById('tuition-container');
+    const policyText = document.getElementById('tuition-policy');
+
+    if (policyText) policyText.innerHTML = DB.tuition.policy;
+    if (container) container.innerHTML = buildTuitionCardsHTML(DB.tuition.summary);
+}
+
+function renderFAQ() {
+    const container = document.getElementById('faq-container');
+    if (container) container.innerHTML = buildFAQHTML(DB.faq);
 }
 
 function toggleFAQ(btn, answerId) {
@@ -398,28 +525,20 @@ function toggleFAQ(btn, answerId) {
     }
 }
 
-// 화면 폭이 바뀌면 열려 있는 답변의 높이를 다시 계산합니다.
-window.addEventListener('resize', () => {
-    document.querySelectorAll('.faq-answer.open').forEach(answer => {
-        answer.style.maxHeight = `${answer.scrollHeight}px`;
-    });
-});
 
 function renderSuccessStories() {
     for (const [subject, stories] of Object.entries(DB.successStories)) {
         const list = document.getElementById(`success-${subject}`);
-        if (list) {
-            list.innerHTML = stories.map(story => `<li><i class="fas fa-check text-imperial-blue mr-2 text-xs"></i>${story}</li>`).join('');
-        }
+        if (list) list.innerHTML = buildSuccessStoriesHTML(stories);
     }
 }
 
 function filterTeachers(filter, btn) {
     const container = document.getElementById('teacher-container');
-    container.innerHTML = ''; 
-    
-    const filtered = filter === 'all' 
-        ? DB.teachers 
+    if (!container) return;
+
+    const filtered = filter === 'all'
+        ? DB.teachers
         : DB.teachers.filter(t => t.subject === filter);
 
     if (btn) {
@@ -431,36 +550,7 @@ function filterTeachers(filter, btn) {
         btn.classList.add('bg-imperial-black', 'text-white');
     }
 
-    filtered.forEach((t) => {
-        const suffix = t.subject === 'TA' ? '' : '선생님'; 
-        const nameDisplay = t.subject === 'TA' ? `${t.name} <span class="text-sm font-normal text-gray-500">TA</span>` : `${t.name} <span class="text-sm font-normal text-gray-500">선생님</span>`;
-
-        const card = `
-            <div class="group bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:-translate-y-1" onclick="openTeacherModal(${t.id})">
-                <div class="relative w-full aspect-square overflow-hidden bg-gray-200">
-                    <img src="${(t.imgs && t.imgs.length > 0) ? t.imgs[0] : DEFAULT_PROFILE_IMG}" alt="${t.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='${DEFAULT_PROFILE_IMG}'">
-                </div>
-                <div class="p-5">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="text-xl font-black text-gray-900">${nameDisplay}</h3>
-                            <p class="text-imperial-blue font-bold text-xs uppercase tracking-wider mt-1">${t.role}</p>
-                        </div>
-                        <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">${t.subject}</span>
-                    </div>
-                    <div class="mt-3 mb-4">
-                        <p class="text-gray-800 text-sm font-bold border-l-4 border-imperial-blue pl-3 py-1 bg-gray-50 rounded-r leading-relaxed break-keep">
-                            "${t.impact}"
-                        </p>
-                    </div>
-                    <button class="w-full py-3 bg-white border border-gray-200 text-sm font-bold text-gray-600 hover:border-imperial-blue hover:text-imperial-blue transition-colors rounded-lg flex items-center justify-center gap-2">
-                        자세히 보기 <i class="fas fa-chevron-right text-xs opacity-50"></i>
-                    </button>
-                </div>
-            </div>
-        `;
-        container.insertAdjacentHTML('beforeend', card);
-    });
+    container.innerHTML = buildTeacherCardsHTML(filtered);
 }
 
 function openTeacherModal(id) {
@@ -514,48 +604,15 @@ function closeTeacherModal() {
 
 function initTeacherFilter() {
     const select = document.getElementById('teacher-filter');
-    const teachers = [...new Set(
-        DB.teachers
-            .filter(t => t.subject !== 'TA') 
-            .map(t => t.name)
-    )];
-    
-    teachers.forEach(name => {
-        const option = document.createElement('option');
-        option.value = name;
-        option.textContent = `${name} T`;
-        select.appendChild(option);
-    });
+    if (!select || select.options.length > 1) return; // 프리렌더로 이미 채워져 있으면 건너뜀
+
+    select.insertAdjacentHTML('beforeend', buildTeacherOptionsHTML(DB.teachers));
 }
 
 function renderTimetable() {
     const gradeVal = document.getElementById('grade-filter').value;
     const subjectVal = document.getElementById('subject-filter').value;
-    const teacherVal = document.getElementById('teacher-filter').value; 
-    
-    // Container for PC Table Rows
-    const tbody = document.getElementById('timetable-body');
-    // Container for Mobile Cards (We need to add this to HTML or create dynamically)
-    // [Solution]: Since the user only has a table structure, we will use JS to render cards into a new container for mobile.
-    // However, sticking to the "don't change structure too much" rule, we will create a parallel list.
-    // For cleaner code, we will inject mobile cards *into* a new div we create if it doesn't exist, or just use a container.
-    // Let's assume we modify index.html to have a container. 
-    // To make it easy for the user, I will find a place to put mobile cards.
-    
-    // Actually, the request is to *change* the display method.
-    // I will clear both containers.
-    // Note: I need to update index.html to include a container for mobile cards first.
-    // But since I provide the files, I can add it to index.html.
-    
-    // Let's check if mobile container exists (it will after I update index.html)
-    let mobileContainer = document.getElementById('mobile-timetable-container');
-    if (!mobileContainer) {
-        // Fallback or error safety
-        console.warn("Mobile container not found");
-    }
-
-    tbody.innerHTML = '';
-    if(mobileContainer) mobileContainer.innerHTML = '';
+    const teacherVal = document.getElementById('teacher-filter').value;
 
     const filtered = DB.classes.filter(c => {
         const gradeMatch = gradeVal === 'all' || c.grade === gradeVal;
@@ -564,73 +621,13 @@ function renderTimetable() {
         return gradeMatch && subjectMatch && teacherMatch;
     });
 
+    const tbody = document.getElementById('timetable-body');
+    const mobileContainer = document.getElementById('mobile-timetable-container');
     const noData = document.getElementById('no-classes');
-    if (filtered.length === 0) {
-        noData.classList.remove('hidden');
-    } else {
-        noData.classList.add('hidden');
-        filtered.forEach(c => {
-            const teacherObj = DB.teachers.find(t => t.name === c.teacher);
-            const teacherNameHtml = teacherObj 
-                ? `<button onclick="openTeacherModal(${teacherObj.id})" class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-xs font-semibold hover:bg-imperial-blue hover:text-white transition-colors cursor-pointer">${c.teacher} T</button>`
-                : `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">${c.teacher} T</span>`;
 
-            // 1. Render Desktop Table Row
-            const row = `
-                <tr class="hover:bg-gray-50 transition-colors">
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm font-bold text-gray-900">${c.grade}</div>
-                        <div class="text-xs text-gray-500">${c.subject}</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm font-bold text-imperial-blue">${c.title}</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900"><i class="far fa-calendar mr-1 text-gray-400"></i> ${c.day}</div>
-                        <div class="text-xs text-gray-500"><i class="far fa-clock mr-1 text-gray-400"></i> ${c.time}</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        ${teacherNameHtml}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-center">
-                        <span class="px-2 py-1 text-xs font-bold text-green-600 bg-green-100 rounded">접수중</span>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-center">
-                        <button onclick="openConsultModal('${c.title}')" class="text-imperial-blue hover:text-black font-bold text-sm border border-imperial-blue hover:border-black px-3 py-1 rounded transition-colors">
-                            신청
-                        </button>
-                    </td>
-                </tr>
-            `;
-            tbody.insertAdjacentHTML('beforeend', row);
-
-            // 2. Render Mobile Card [Mobile Optimization]
-            if(mobileContainer) {
-                const card = `
-                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex flex-col gap-3">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded mb-1">${c.grade} | ${c.subject}</span>
-                                <h4 class="text-lg font-bold text-imperial-blue">${c.title}</h4>
-                            </div>
-                            ${teacherNameHtml}
-                        </div>
-                        <div class="flex flex-col gap-1 text-sm text-gray-600">
-                            <div><i class="far fa-calendar w-5 text-center mr-1 text-gray-400"></i> ${c.day}</div>
-                            <div><i class="far fa-clock w-5 text-center mr-1 text-gray-400"></i> ${c.time}</div>
-                        </div>
-                        <div class="flex justify-between items-center mt-2 pt-3 border-t border-gray-50">
-                            <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">접수중</span>
-                            <button onclick="openConsultModal('${c.title}')" class="text-sm font-bold bg-imperial-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors">
-                                신청하기
-                            </button>
-                        </div>
-                    </div>
-                `;
-                mobileContainer.insertAdjacentHTML('beforeend', card);
-            }
-        });
-    }
+    if (tbody) tbody.innerHTML = buildTimetableRowsHTML(filtered, DB.teachers);
+    if (mobileContainer) mobileContainer.innerHTML = buildTimetableCardsHTML(filtered, DB.teachers);
+    if (noData) noData.classList.toggle('hidden', filtered.length > 0);
 }
 
 function openConsultModal(className = '') {
@@ -690,7 +687,7 @@ async function handleConsultSubmit(e) {
         loader.classList.add('hidden');
         
         Toastify({
-            text: "전송 실패. 텔레그램 봇 '시작' 버튼을 눌렀는지 확인해주세요.",
+            text: "전송에 실패했습니다. 잠시 후 다시 시도하시거나 02-2644-1178로 연락 주세요.",
             duration: 4000,
             gravity: "top", 
             position: "center", 
@@ -699,41 +696,19 @@ async function handleConsultSubmit(e) {
     }
 }
 
-// [수정된 텔레그램 전송 로직: 프록시 제거 및 직접 통신]
+// 상담 신청 전송 — 봇 토큰은 서버(Cloudflare Pages Functions)에만 두고,
+// 브라우저는 같은 도메인의 /api/consult 로만 보냅니다. (functions/api/consult.js)
 async function sendTelegramAlert(data) {
-    const BOT_TOKEN = '8435500018:AAGY4gcNhiRBx2fHf8OzbHy74wIkzN5qvB0'; 
-    const CHAT_ID = '8466973475';
-
-    const message = `
-[임페리얼 학원 신규 상담 신청]
----------------------------
-👤 학부모: ${data.parentName}
-학생명: ${data.studentName}
-📞 연락처: ${data.phone}
-🏫 학년: ${data.grade}
-📚 관심과목: ${data.subject}
----------------------------
-* 관리자님, 빠른 연락 부탁드립니다.
-    `;
-
-    // 프록시를 거치지 않고 텔레그램 서버로 직접 쏩니다.
-    const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-    
-    const response = await fetch(telegramUrl, {
+    const response = await fetch('/api/consult', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: message,
-            parse_mode: 'HTML'
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
     });
 
     if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(`Telegram API Error: ${errorData.description}`);
+        let detail = '';
+        try { detail = (await response.json()).error || ''; } catch (e) { /* 본문 없음 */ }
+        throw new Error(`상담 신청 전송 실패 (${response.status}${detail ? ' ' + detail : ''})`);
     }
 }
 function toggleMobileMenu() {
@@ -774,4 +749,18 @@ function initCounters() {
     }, options);
     
     counters.forEach(counter => observer.observe(counter));
+}
+// 6. 빌드 스크립트(Node)용 export — 브라우저에는 module이 없으므로 건너뜁니다.
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        IMPERIAL_DATA,
+        buildSuccessStoriesHTML,
+        buildTuitionCardsHTML,
+        buildLegalTuitionRowsHTML,
+        buildTeacherCardsHTML,
+        buildFAQHTML,
+        buildTimetableRowsHTML,
+        buildTimetableCardsHTML,
+        buildTeacherOptionsHTML
+    };
 }

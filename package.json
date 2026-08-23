@@ -4,8 +4,10 @@
   "description": "Imperial Academy Official Website",
   "main": "index.html",
   "scripts": {
-    "dev": "tailwindcss -i ./src/input.css -o ./output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./output.css --minify"
+    "prerender": "node scripts/prerender.mjs",
+    "css": "tailwindcss -i ./src/input.css -o ./output.css",
+    "build": "npm run prerender && npm run css",
+    "dev": "npm run prerender && tailwindcss -i ./src/input.css -o ./output.css --watch"
   },
   "keywords": [],
   "author": "Imperial Tech Team",
